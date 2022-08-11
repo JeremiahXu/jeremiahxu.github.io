@@ -2,7 +2,7 @@
 title: Jeremiah Markdown Blog
 description: 'There are my notes in daily.' # this means to ignore newlines until "baseurl:"
 permalink: ':title:output_ext'
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "/md-blog" # the subpath of your site, e.g. /blog
 url: "https://jeremiah-xu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 logo: "/assets/img/branding/MVM-logo-full.svg"
 logo-icon: "/assets/img/branding/MVM-symbol.svg"
