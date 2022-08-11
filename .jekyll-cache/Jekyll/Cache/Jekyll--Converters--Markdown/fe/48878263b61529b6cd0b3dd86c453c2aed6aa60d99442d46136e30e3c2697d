@@ -1,0 +1,62 @@
+I"�	<h2 id="安装ruby">安装ruby</h2>
+<p>终端输入如下两条命令，以安装必要的依赖以及ruby环境</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt-get install ruby-full build-essential zlib1g-dev -y
+</code></pre></div></div>
+<p>It is best to avoid installing Ruby Gems as the root user. Therefore, we need to set up a gem installation directory for your user account. The following commands will add environment variables to your ~/.bashrc file to configure the gem installation path. Run them now:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' &gt;&gt; ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre></div></div>
+<p>Finally, install Jekyll:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll bundler
+</code></pre></div></div>
+
+<ol>
+  <li>安装一个完整的Ruby 开发环境。</li>
+  <li>安装 Jekyll 和 bundler gems。
+  gem install bundler jekyll</li>
+  <li>在 ./myblog 目录下创建一个全新的 Jekyll 网站。
+  jekyll new my-awesome-site</li>
+  <li>进入新创建的目录。
+  cd my-awesome-site</li>
+  <li>构建网站并启动一个本地服务器。
+  bundle exec jekyll serve
+    <h2 id="-打开浏览器-httplocalhost4000">=&gt; 打开浏览器 http://localhost:4000</h2>
+  </li>
+</ol>
+
+<p>根据官方的项目的说明：
+这是因为：
+从 Ruby 3.0 开始 webrick 已经不在绑定到 Ruby 中了，请参考链接： Ruby 3.0.0 Released 中的说明。
+webrick 需要手动进行添加。
+添加的命令为：
+bundle add webrick</p>
+
+<p>修改 jekyll的_config.yml的 内容：
+将127.0.0.1（回环地址）改为
+root: 0.0.0.0
+port: 4000</p>
+
+<p>选择主题
+http://jekyllthemes.org/</p>
+
+<p>克隆了以后，会得到一个叫moon的文件夹，进入这个目录，执行下面命令：</p>
+
+<p>bundle install
+bundle exec jekyll server</p>
+
+<p>链接：https://www.jianshu.com/p/48e1d76fd36b</p>
+
+<p>使用官网镜像
+jekyll/jekyll:latest
+1.运行容器
+docker run –rm -p 4000:4000 -p 35729:35729 -v /d/docker_volumes/md-blog-main:/srv/jekyll -itd jekyll/jekyll bash
+2.将主题拷贝至volumn文件夹中
+3.构建网站并启动一个本地服务器
+bundle install
+bundle exec jekyll server</p>
+
+:ET
