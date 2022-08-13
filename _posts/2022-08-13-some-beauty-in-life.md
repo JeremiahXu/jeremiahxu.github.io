@@ -3,9 +3,9 @@ layout: post
 read_time: true
 show_date: true
 title: Some-beauty-in life
-date: 2022-08-13 19:35:32 -0600
+date: 2022-08-13 19:35:32 +0800
 description: Here are some pictrue for lady.
-img: posts/20220813/0.jpg
+img: 
 tags: [pic]
 author: Jeremiah
 github: 
