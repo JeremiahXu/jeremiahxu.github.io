@@ -5,7 +5,7 @@ show_date: true
 title: ubuntu下 安装docker-ce
 date: 2022-08-14 00:59:43 +0800 
 description: sa用户切换到root用户.
-img: 
+img: posts/20220814/Snipaste_2022-08-16_13-59-49.png
 tags: [linux, docker, ubuntu]
 author: Jeremiah
 github: 
