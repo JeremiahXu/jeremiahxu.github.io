@@ -13,7 +13,7 @@ github:
 
 ![Refit](..\assets\img\posts\20220919\refit_logo.png)
 
-## Refit: The automatic type-safe REST library for .NET Core, Xamarin and .NET
+## Refit:用于.NET Core，Xamarin和.NET的自动类型安全REST库
 
 [![Build Status](https://dev.azure.com/dotnet/ReactiveUI/_apis/build/status/Refit-CI?branchName=master)](https://dev.azure.com/dotnet/ReactiveUI/_build/latest?definitionId=17)
 
@@ -24,10 +24,12 @@ github:
 
 CI Feed: `https://pkgs.dev.azure.com/dotnet/ReactiveUI/_packaging/Refit/nuget/v3/index.json`
 
+
 Refit is a library heavily inspired by Square's
 [Retrofit](http://square.github.io/retrofit) library, and it turns your REST
 API into a live interface:
 
+Refit 是一个深受 Square 的 [Retrofit](http://square.github.io/retrofit) 库启发的库，它将你的 REST API 变成一个活动的接口
 ```csharp
 public interface IGitHubApi
 {
@@ -39,20 +41,24 @@ public interface IGitHubApi
 The `RestService` class generates an implementation of `IGitHubApi` that uses
 `HttpClient` to make its calls:
 
+RestService 类生成 IGitHubApi 的实现，该实现使用 HttpClient 进行调用
+
 ```csharp
 var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
 var octocat = await gitHubApi.GetUser("octocat");
 ```
 .NET Core supports registering via HttpClientFactory
+
+.NET Core 支持通过 HttpClientFactory 注册
 ```csharp
 services
     .AddRefitClient<IGitHubApi>()
     .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://api.github.com"));
 ```
 
-# Table of Contents
+# 目录
 
-- [Table of Contents](#table-of-contents)
+- [目录](#目录)
     - [Where does this work?](#where-does-this-work)
     - [SDK Requirements](#sdk-requirements)
       - [Breaking changes in 6.x](#breaking-changes-in-6x)
@@ -67,13 +73,13 @@ services
         - [JSON source generator](#json-source-generator)
       - [XML Content](#xml-content)
       - [<a name="form-posts"></a>Form posts](#form-posts)
-    - [Setting request headers](#setting-request-headers)
-      - [Static headers](#static-headers)
-      - [Dynamic headers](#dynamic-headers)
-      - [Bearer Authentication](#bearer-authentication)
-      - [Reducing header boilerplate with DelegatingHandlers (Authorization headers worked example)](#reducing-header-boilerplate-with-delegatinghandlers-authorization-headers-worked-example)
-      - [Redefining headers](#redefining-headers)
-      - [Removing headers](#removing-headers)
+    - [Setting request headers 设置请求头](#setting-request-headers-设置请求头)
+      - [Static headers 静态头](#static-headers-静态头)
+      - [Dynamic headers 动态头](#dynamic-headers-动态头)
+      - [Bearer Authentication 承载Token认证](#bearer-authentication-承载token认证)
+      - [使用DelegatingHandlers来减少header样板（Authorization headers 工作示例）](#使用delegatinghandlers来减少header样板authorization-headers-工作示例)
+      - [重新定义 headers](#重新定义-headers)
+      - [移除 headers](#移除-headers)
     - [Passing state into DelegatingHandlers](#passing-state-into-delegatinghandlers)
       - [Support for Polly and Polly.Context](#support-for-polly-and-pollycontext)
       - [Target Interface Type](#target-interface-type)
@@ -84,7 +90,7 @@ services
       - [Headers inheritance](#headers-inheritance)
     - [Default Interface Methods](#default-interface-methods)
     - [Using HttpClientFactory](#using-httpclientfactory)
-    - [Handling exceptions](#handling-exceptions)
+    - [Handling exceptions 处理异常](#handling-exceptions-处理异常)
       - [<a id="when-returning-taskapiresponset"></a>When returning `Task<IApiResponse>`, `Task<IApiResponse<T>>`, or `Task<ApiResponse<T>>`](#when-returning-taskiapiresponse-taskiapiresponset-or-taskapiresponset)
       - [When returning `Task<T>`](#when-returning-taskt)
       - [Providing a custom `ExceptionFactory`](#providing-a-custom-exceptionfactory)
@@ -519,9 +525,10 @@ public class SomeObject
 
 **NOTE:** This use of `AliasAs` applies to querystring parameters and form body posts, but not to response objects; for aliasing fields on response objects, you'll still need to use `[JsonProperty("full-property-name")]`.
 
-### Setting request headers
+### Setting request headers 设置请求头
 
-#### Static headers
+
+#### Static headers 静态头
 
 You can set one or more static request headers for a request applying a `Headers`
 attribute to the method:
@@ -547,7 +554,7 @@ public interface IGitHubApi
 }
 ```
 
-#### Dynamic headers
+#### Dynamic headers 动态头
 
 If the content of the header needs to be set at runtime, you can add a header
 with a dynamic value to a request by applying a `Header` attribute to a parameter:
@@ -586,14 +593,20 @@ var user = await GetUser("octocat", headers);
 ```
 [//]: # ({% endraw %})
 
-#### Bearer Authentication
+#### Bearer Authentication 承载Token认证
 
 Most APIs need some sort of Authentication. The most common is OAuth Bearer authentication. A header is added to each request of the form: `Authorization: Bearer <token>`. Refit makes it easy to insert your logic to get the token however your app needs, so you don't have to pass a token into each method.
 
-1. Add `[Headers("Authorization: Bearer")]` to the interface or methods which need the token.
-2. Set either `AuthorizationHeaderValueGetter` or `AuthorizationHeaderValueWithParamGetter` in the `RefitSettings` instance. The difference is that the latter one passes the `HttpRequestMessage` into the function in case you need to take action based on the specific request. Refit will call your delegate each time it needs to obtain the token, so it's a good idea for your mechanism to cache the token value for some period within the token lifetime.
+大多数 API 需要某种身份验证。最常见的是 OAuth Bearer 身份验证。向表单的每个请求添加一个标头：`Authorization: Bearer <token>`。Refit 使您可以轻松地插入逻辑以获取应用程序需要的token，因此您不必将token传递给每个方法。
 
-#### Reducing header boilerplate with DelegatingHandlers (Authorization headers worked example)
+1. Add `[Headers("Authorization: Bearer")]` to the interface or methods which need the token.
+   
+   将 `[Headers("Authorization: Bearer")]` 添加到需要token的接口或方法中。
+2. Set either `AuthorizationHeaderValueGetter` or `AuthorizationHeaderValueWithParamGetter` in the `RefitSettings` instance. The difference is that the latter one passes the `HttpRequestMessage` into the function in case you need to take action based on the specific request. Refit will call your delegate each time it needs to obtain the token, so it's a good idea for your mechanism to cache the token value for some period within the token lifetime.
+   
+   在 RefitSettings 实例中设置 AuthorizationHeaderValueGetter 或 AuthorizationHeaderValueWithParamGetter。它们的不同之处在于：后者将 HttpRequestMessage 传递到函数中，以防您需要根据特定请求采取行动。Refit 将在每次需要获取token时调用您的委托方法，因此对您的机制最好的方法是在token生命周期内将Token值缓存一段时间。
+
+#### 使用DelegatingHandlers来减少header样板（Authorization headers 工作示例）
 Although we make provisions for adding dynamic headers at runtime directly in Refit,
 most use-cases would likely benefit from registering a custom `DelegatingHandler` in order to inject the headers as part of the `HttpClient` middleware pipeline
 thus removing the need to add lots of `[Header]` or `[HeaderCollection]` attributes.
@@ -683,7 +696,7 @@ var user = await thirdPartyApi.GetUser(username);
 //do your thing
 ```
 
-#### Redefining headers
+#### 重新定义 headers
 
 Unlike Retrofit, where headers do not overwrite each other and are all added to
 the request regardless of how many times the same header is defined, Refit takes
@@ -737,7 +750,7 @@ public interface ISomeApi
 var user = await api.PostTheThing(3);
 ```
 
-#### Removing headers
+#### 移除 headers
 
 Headers defined on an interface or method can be removed by redefining
 a static header without a value (i.e. without `: <value>`) or passing `null` for
@@ -1172,7 +1185,7 @@ public class HomeController : Controller
 }
 ```
 
-### Handling exceptions
+### Handling exceptions 处理异常
 Refit has different exception handling behavior depending on if your Refit interface methods return `Task<T>` or if they return `Task<IApiResponse>`, `Task<IApiResponse<T>>`, or `Task<ApiResponse<T>>`.
 
 #### <a id="when-returning-taskapiresponset"></a>When returning `Task<IApiResponse>`, `Task<IApiResponse<T>>`, or `Task<ApiResponse<T>>`
