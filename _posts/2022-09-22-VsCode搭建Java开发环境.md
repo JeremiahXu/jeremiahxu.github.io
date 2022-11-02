@@ -5,7 +5,7 @@ show_date: true
 title: VsCode搭建Java开发环境
 date: 2022-09-22 09:04:09 +0800
 description: VsCode搭建Java开发环境
-img: posts/default/Snipaste_2022-08-29_11-11-11.png
+img: posts/2022-09-22-VsCode搭建Java开发环境/2022-11-02-18-16-47-image.png
 tags: [Java,vsc]
 author: Jeremiah
 github: 
