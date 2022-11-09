@@ -17,19 +17,19 @@ github:
 
 [![Build Status](https://dev.azure.com/dotnet/ReactiveUI/_apis/build/status/Refit-CI?branchName=master)](https://dev.azure.com/dotnet/ReactiveUI/_build/latest?definitionId=17)
 
-||Refit|Refit.HttpClientFactory|Refit.Newtonsoft.Json|
-|-|-|-|-|
-|*NuGet*|[![NuGet](https://img.shields.io/nuget/v/Refit.svg)](https://www.nuget.org/packages/Refit/)|[![NuGet](https://img.shields.io/nuget/v/Refit.HttpClientFactory.svg)](https://www.nuget.org/packages/Refit.HttpClientFactory/)|[![NuGet](https://img.shields.io/nuget/v/Refit.Newtonsoft.Json.svg)](https://www.nuget.org/packages/Refit.Newtonsoft.Json/)|
-|*Azure<br />Artifacts*|[![Refit package in Refit feed in Azure Artifacts](https://azpkgsshield.azurevoodoo.net/dotnet/ReactiveUI/Refit/Refit)](https://dev.azure.com/dotnet/ReactiveUI/_packaging?_a=package&feed=6368ad76-9653-4c2f-a6c6-da8c790ae826&package=2f65cb3b-df09-4050-a84e-b868ed95fd28&preferRelease=true)|[![Refit.HttpClientFactory package in Refit feed in Azure Artifacts](https://azpkgsshield.azurevoodoo.net/dotnet/ReactiveUI/Refit/Refit.HttpClientFactory)](https://dev.azure.com/dotnet/ReactiveUI/_packaging?_a=package&feed=6368ad76-9653-4c2f-a6c6-da8c790ae826&package=d87934cb-2f7b-44b7-83b8-3872ac965ef2&preferRelease=true)|[![Refit.Newtonsoft.Json package in Refit feed in Azure Artifacts](https://azpkgsshield.azurevoodoo.net/dotnet/ReactiveUI/Refit/Refit.Newtonsoft.Json)](https://dev.azure.com/dotnet/ReactiveUI/_packaging?_a=package&feed=6368ad76-9653-4c2f-a6c6-da8c790ae826&package=d87934cb-2f7b-44b7-83b8-3872ac965ef2&preferRelease=true)|
+|                        | Refit                                                                                                                                                                                                                                                                                            | Refit.HttpClientFactory                                                                                                                                                                                                                                                                                                              | Refit.Newtonsoft.Json                                                                                                                                                                                                                                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *NuGet*                | [![NuGet](https://img.shields.io/nuget/v/Refit.svg)](https://www.nuget.org/packages/Refit/)                                                                                                                                                                                                      | [![NuGet](https://img.shields.io/nuget/v/Refit.HttpClientFactory.svg)](https://www.nuget.org/packages/Refit.HttpClientFactory/)                                                                                                                                                                                                      | [![NuGet](https://img.shields.io/nuget/v/Refit.Newtonsoft.Json.svg)](https://www.nuget.org/packages/Refit.Newtonsoft.Json/)                                                                                                                                                                                                      |
+| *Azure<br />Artifacts* | [![Refit package in Refit feed in Azure Artifacts](https://azpkgsshield.azurevoodoo.net/dotnet/ReactiveUI/Refit/Refit)](https://dev.azure.com/dotnet/ReactiveUI/_packaging?_a=package&feed=6368ad76-9653-4c2f-a6c6-da8c790ae826&package=2f65cb3b-df09-4050-a84e-b868ed95fd28&preferRelease=true) | [![Refit.HttpClientFactory package in Refit feed in Azure Artifacts](https://azpkgsshield.azurevoodoo.net/dotnet/ReactiveUI/Refit/Refit.HttpClientFactory)](https://dev.azure.com/dotnet/ReactiveUI/_packaging?_a=package&feed=6368ad76-9653-4c2f-a6c6-da8c790ae826&package=d87934cb-2f7b-44b7-83b8-3872ac965ef2&preferRelease=true) | [![Refit.Newtonsoft.Json package in Refit feed in Azure Artifacts](https://azpkgsshield.azurevoodoo.net/dotnet/ReactiveUI/Refit/Refit.Newtonsoft.Json)](https://dev.azure.com/dotnet/ReactiveUI/_packaging?_a=package&feed=6368ad76-9653-4c2f-a6c6-da8c790ae826&package=d87934cb-2f7b-44b7-83b8-3872ac965ef2&preferRelease=true) |
 
 CI Feed: `https://pkgs.dev.azure.com/dotnet/ReactiveUI/_packaging/Refit/nuget/v3/index.json`
-
 
 Refit is a library heavily inspired by Square's
 [Retrofit](http://square.github.io/retrofit) library, and it turns your REST
 API into a live interface:
 
 Refit 是一个深受 Square 的 [Retrofit](http://square.github.io/retrofit) 库启发的库，它将你的 REST API 变成一个活动的接口
+
 ```csharp
 public interface IGitHubApi
 {
@@ -47,9 +47,11 @@ RestService 类生成 IGitHubApi 的实现，该实现使用 HttpClient 进行�
 var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
 var octocat = await gitHubApi.GetUser("octocat");
 ```
+
 .NET Core supports registering via HttpClientFactory
 
 .NET Core 支持通过 HttpClientFactory 注册
+
 ```csharp
 services
     .AddRefitClient<IGitHubApi>()
@@ -59,42 +61,42 @@ services
 # 目录
 
 - [目录](#目录)
-    - [Where does this work?](#where-does-this-work)
-    - [SDK Requirements](#sdk-requirements)
-      - [Breaking changes in 6.x](#breaking-changes-in-6x)
-        - [Updates in 6.3](#updates-in-63)
-    - [API Attributes](#api-attributes)
-    - [Dynamic Querystring Parameters](#dynamic-querystring-parameters)
-    - [Collections as Querystring parameters](#collections-as-querystring-parameters)
-    - [Unescape Querystring parameters](#unescape-querystring-parameters)
-    - [Body content](#body-content)
-      - [Buffering and the `Content-Length` header](#buffering-and-the-content-length-header)
-      - [JSON content](#json-content)
-        - [JSON source generator](#json-source-generator)
-      - [XML Content](#xml-content)
-      - [<a name="form-posts"></a>Form posts](#form-posts)
-    - [Setting request headers 设置请求头](#setting-request-headers-设置请求头)
-      - [Static headers 静态头](#static-headers-静态头)
-      - [Dynamic headers 动态头](#dynamic-headers-动态头)
-      - [Bearer Authentication 承载Token认证](#bearer-authentication-承载token认证)
-      - [使用DelegatingHandlers来减少header样板（Authorization headers 工作示例）](#使用delegatinghandlers来减少header样板authorization-headers-工作示例)
-      - [重新定义 headers](#重新定义-headers)
-      - [移除 headers](#移除-headers)
-    - [Passing state into DelegatingHandlers](#passing-state-into-delegatinghandlers)
-      - [Support for Polly and Polly.Context](#support-for-polly-and-pollycontext)
-      - [Target Interface Type](#target-interface-type)
-    - [Multipart uploads](#multipart-uploads)
-    - [Retrieving the response](#retrieving-the-response)
-    - [Using generic interfaces](#using-generic-interfaces)
-    - [Interface inheritance](#interface-inheritance)
-      - [Headers inheritance](#headers-inheritance)
-    - [Default Interface Methods](#default-interface-methods)
-    - [Using HttpClientFactory](#using-httpclientfactory)
-    - [Handling exceptions 处理异常](#handling-exceptions-处理异常)
-      - [<a id="when-returning-taskapiresponset"></a>When returning `Task<IApiResponse>`, `Task<IApiResponse<T>>`, or `Task<ApiResponse<T>>`](#when-returning-taskiapiresponse-taskiapiresponset-or-taskapiresponset)
-      - [When returning `Task<T>`](#when-returning-taskt)
-      - [Providing a custom `ExceptionFactory`](#providing-a-custom-exceptionfactory)
-      - [`ApiException` deconstruction with Serilog](#apiexception-deconstruction-with-serilog)
+  - [Where does this work?](#where-does-this-work)
+  - [SDK Requirements](#sdk-requirements)
+    - [Breaking changes in 6.x](#breaking-changes-in-6x)
+      - [Updates in 6.3](#updates-in-63)
+  - [API Attributes](#api-attributes)
+  - [Dynamic Querystring Parameters](#dynamic-querystring-parameters)
+  - [Collections as Querystring parameters](#collections-as-querystring-parameters)
+  - [Unescape Querystring parameters](#unescape-querystring-parameters)
+  - [Body content](#body-content)
+    - [Buffering and the `Content-Length` header](#buffering-and-the-content-length-header)
+    - [JSON content](#json-content)
+      - [JSON source generator](#json-source-generator)
+    - [XML Content](#xml-content)
+    - [<a name="form-posts"></a>Form posts](#form-posts)
+  - [Setting request headers 设置请求头](#setting-request-headers-设置请求头)
+    - [Static headers 静态头](#static-headers-静态头)
+    - [Dynamic headers 动态头](#dynamic-headers-动态头)
+    - [Bearer Authentication 承载Token认证](#bearer-authentication-承载token认证)
+    - [使用DelegatingHandlers来减少header样板（Authorization headers 工作示例）](#使用delegatinghandlers来减少header样板authorization-headers-工作示例)
+    - [重新定义 headers](#重新定义-headers)
+    - [移除 headers](#移除-headers)
+  - [Passing state into DelegatingHandlers](#passing-state-into-delegatinghandlers)
+    - [Support for Polly and Polly.Context](#support-for-polly-and-pollycontext)
+    - [Target Interface Type](#target-interface-type)
+  - [Multipart uploads](#multipart-uploads)
+  - [Retrieving the response](#retrieving-the-response)
+  - [Using generic interfaces](#using-generic-interfaces)
+  - [Interface inheritance](#interface-inheritance)
+    - [Headers inheritance](#headers-inheritance)
+  - [Default Interface Methods](#default-interface-methods)
+  - [Using HttpClientFactory](#using-httpclientfactory)
+  - [Handling exceptions 处理异常](#handling-exceptions-处理异常)
+    - [<a id="when-returning-taskapiresponset"></a>When returning `Task<IApiResponse>`, `Task<IApiResponse<T>>`, or `Task<ApiResponse<T>>`](#when-returning-taskiapiresponse-taskiapiresponset-or-taskapiresponset)
+    - [When returning `Task<T>`](#when-returning-taskt)
+    - [Providing a custom `ExceptionFactory`](#providing-a-custom-exceptionfactory)
+    - [`ApiException` deconstruction with Serilog](#apiexception-deconstruction-with-serilog)
 
 ### Where does this work?
 
@@ -166,7 +168,6 @@ class UserGroupRequest{
     int groupId { get;set; }
     int userId { get;set; }
 }
-
 ```
 
 Parameters that are not specified as a URL substitution will automatically be
@@ -246,6 +247,7 @@ GroupListWithAttribute(4, params)
 A similar behavior exists if using a Dictionary, but without the advantages of the `AliasAs` attributes and of course no intellisense and/or type safety.
 
 You can also specify querystring parameters with [Query] and have them flattened in non-GET requests, similar to:
+
 ```csharp
 [Post("/statuses/update.json")]
 Task<Tweet> PostTweet([Query]TweetParams params);
@@ -311,7 +313,7 @@ type of the parameter:
 * If the parameter has the attribute `[Body(BodySerializationMethod.UrlEncoded)]`,
   the content will be URL-encoded (see [form posts](#form-posts) below)
 * For all other types, the object will be serialized using the content serializer specified in
-RefitSettings (JSON is the default).
+  RefitSettings (JSON is the default).
 
 #### Buffering and the `Content-Length` header
 
@@ -510,7 +512,6 @@ If you have a type that has `[JsonProperty(PropertyName)]` attributes setting pr
 This means that the following type will serialize as `one=value1&two=value2`:
 
 ```csharp
-
 public class SomeObject
 {
     [JsonProperty(PropertyName = "one")]
@@ -520,13 +521,11 @@ public class SomeObject
     [AliasAs("two")]
     public string SecondProperty { get; set; }
 }
-
 ```
 
 **NOTE:** This use of `AliasAs` applies to querystring parameters and form body posts, but not to response objects; for aliasing fields on response objects, you'll still need to use `[JsonProperty("full-property-name")]`.
 
 ### Setting request headers 设置请求头
-
 
 #### Static headers 静态头
 
@@ -583,14 +582,15 @@ If you need to set multiple headers at runtime, you can add a `IDictionary<strin
 and apply a `HeaderCollection` attribute to the parameter and it will inject the headers into the request:
 
 [//]: # ({% raw %})
-```csharp
 
+```csharp
 [Get("/users/{user}")]
 Task<User> GetUser(string user, [HeaderCollection] IDictionary<string, string> headers);
 
 var headers = new Dictionary<string, string> {{"Authorization","Bearer tokenGoesHere"}, {"X-Tenant-Id","123"}};
 var user = await GetUser("octocat", headers);
 ```
+
 [//]: # ({% endraw %})
 
 #### Bearer Authentication 承载Token认证
@@ -602,11 +602,13 @@ Most APIs need some sort of Authentication. The most common is OAuth Bearer auth
 1. Add `[Headers("Authorization: Bearer")]` to the interface or methods which need the token.
    
    将 `[Headers("Authorization: Bearer")]` 添加到需要token的接口或方法中。
+
 2. Set either `AuthorizationHeaderValueGetter` or `AuthorizationHeaderValueWithParamGetter` in the `RefitSettings` instance. The difference is that the latter one passes the `HttpRequestMessage` into the function in case you need to take action based on the specific request. Refit will call your delegate each time it needs to obtain the token, so it's a good idea for your mechanism to cache the token value for some period within the token lifetime.
    
    在 RefitSettings 实例中设置 AuthorizationHeaderValueGetter 或 AuthorizationHeaderValueWithParamGetter。它们的不同之处在于：后者将 HttpRequestMessage 传递到函数中，以防您需要根据特定请求采取行动。Refit 将在每次需要获取token时调用您的委托方法，因此对您的机制最好的方法是在token生命周期内将Token值缓存一段时间。
 
 #### 使用DelegatingHandlers来减少header样板（Authorization headers 工作示例）
+
 Although we make provisions for adding dynamic headers at runtime directly in Refit,
 most use-cases would likely benefit from registering a custom `DelegatingHandler` in order to inject the headers as part of the `HttpClient` middleware pipeline
 thus removing the need to add lots of `[Header]` or `[HeaderCollection]` attributes.
@@ -619,7 +621,6 @@ In this example we will assume our application is a multi-tenant application tha
 some interface `ITenantProvider` and has a data store `IAuthTokenStore` that can be used to retrieve an auth token to attach to the outbound request.
 
 ```csharp
-
  //Custom delegating handler for adding Auth headers to outbound requests
  class AuthHeaderHandler : DelegatingHandler
  {
@@ -863,6 +864,7 @@ public interface IOrdersAPI : IGetAPI<Order>
 You can access the concrete type of the interface for use in a handler, such as to alter the URL of the request:
 
 [//]: # ({% raw %})
+
 ```csharp
 class RequestPropertyHandler : DelegatingHandler
 {
@@ -883,6 +885,7 @@ class RequestPropertyHandler : DelegatingHandler
     }
 }
 ```
+
 [//]: # ({% endraw %})
 
 Note: in .NET 5 `HttpRequestMessage.Properties` has been marked `Obsolete` and Refit will instead populate the value into the new `HttpRequestMessage.Options`.
@@ -892,10 +895,10 @@ Note: in .NET 5 `HttpRequestMessage.Properties` has been marked `Obsolete` and R
 Methods decorated with `Multipart` attribute will be submitted with multipart content type.
 At this time, multipart methods support the following parameter types:
 
- - string (parameter name will be used as name and string value as value)
- - byte array
- - Stream
- - FileInfo
+- string (parameter name will be used as name and string value as value)
+- byte array
+- Stream
+- FileInfo
 
 Name of the field in the multipart data priority precedence:
 
@@ -1027,6 +1030,7 @@ Which can be used like this:
 // than one type (unless you have a different domain for each type)
 var api = RestService.For<IReallyExcitingCrudApi<User, string>>("http://api.example.com/users");
 ```
+
 ### Interface inheritance
 
 When multiple services that need to be kept separate share a number of APIs, it is possible to leverage interface inheritance to avoid having to define the same Refit methods multiple times in different services:
@@ -1092,7 +1096,9 @@ public interface IAmInterfaceC : IAmInterfaceA, IAmInterfaceB
 Here `IAmInterfaceC.Foo` would use the header attribute inherited from `IAmInterfaceA`, if present, or the one inherited from `IAmInterfaceB`, and so on for all the declared interfaces.
 
 ### Default Interface Methods
+
 Starting with C# 8.0, default interface methods (a.k.a. DIMs) can be defined on interfaces. Refit interfaces can provide additional logic using DIMs, optionally combined with private and/or static helper methods:
+
 ```csharp
 public interface IApiClient
 {
@@ -1106,10 +1112,12 @@ public interface IApiClient
         => $"The response is: {response}";
 }
 ```
+
 The type generated by Refit will implement the method `IApiClient.GetInternal`. If additional logic is required immediately before or after its invocation, it shouldn't be exposed directly and can thus be hidden from consumers by being marked as `internal`.
 The default interface method `IApiClient.Get` will be inherited by all types implementing `IApiClient`, including - of course - the type generated by Refit.
 Consumers of the `IApiClient` will call the public `Get` method and profit from the additional logic provided in its implementation (optionally, in this case, with the help of the private static helper `FormatResponse`).
 To support runtimes without DIM-support (.NET Core 2.x and below or .NET Standard 2.0 and below), two additional types would be required for the same solution.
+
 ```csharp
 internal interface IApiClientInternal
 {
@@ -1145,6 +1153,7 @@ services.AddRefitClient<IWebApi>()
 ```
 
 Optionally, a `RefitSettings` object can be included:
+
 ```csharp
 var settings = new RefitSettings();
 // Configure refit settings here
@@ -1161,8 +1170,8 @@ services.AddRefitClient<IWebApi>(provider => new RefitSettings() { /* configure 
         // Add additional IHttpClientBuilder chained methods as required here:
         // .AddHttpMessageHandler<MyHandler>()
         // .SetHandlerLifetime(TimeSpan.FromMinutes(2));
-
 ```
+
 Note that some of the properties of `RefitSettings` will be ignored because the `HttpClient` and `HttpClientHandlers` will be managed by the `HttpClientFactory` instead of Refit.
 
 You can then get the api interface using constructor injection:
@@ -1186,9 +1195,11 @@ public class HomeController : Controller
 ```
 
 ### Handling exceptions 处理异常
+
 Refit has different exception handling behavior depending on if your Refit interface methods return `Task<T>` or if they return `Task<IApiResponse>`, `Task<IApiResponse<T>>`, or `Task<ApiResponse<T>>`.
 
 #### <a id="when-returning-taskapiresponset"></a>When returning `Task<IApiResponse>`, `Task<IApiResponse<T>>`, or `Task<ApiResponse<T>>`
+
 Refit traps any `ApiException` raised by the `ExceptionFactory` when processing the response, and any errors that occur when attempting to deserialize the response to `ApiResponse<T>`, and populates the exception into the `Error` property on `ApiResponse<T>` without throwing the exception.
 
 You can then decide what to do like so:
@@ -1206,6 +1217,7 @@ else
 ```
 
 #### When returning `Task<T>`
+
 Refit throws any `ApiException` raised by the `ExceptionFactory` when processing the response and any errors that occur when attempting to deserialize the response to `Task<T>`.
 
 ```csharp
