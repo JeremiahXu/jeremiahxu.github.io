@@ -1,4 +1,5 @@
 ---
+
 layout: post
 read_time: true
 show_date: true
@@ -9,10 +10,12 @@ tags: [copyright, creativity, neural networks, machine learning, artificial inte
 category: opinion
 author: Jeremiah Xu
 description: "As neural networks are used more and more in the creative process, text, images and even music are now created by AI, but who owns the copyright for those works?"
+
 ---
+
 Recently I was [reading an article](https://www.rollingstone.com/music/music-features/nirvana-kurt-cobain-ai-song-1146444/) about a cool project that intends to have a neural network create songs of the late club of the 27 (artists that have tragically died at age 27 or near, and in the height of their respective careers), artists such as Amy Winehouse, Jimmy Hendrix, Curt Cobain and Jim Morrison.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tjzOzuKQhSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+<iframe width="100%" height="280" src="https://www.youtube.com/embed/tjzOzuKQhSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
 
 The project was created by [Over the Bridge](https://overthebridge.org), an organization dedicated to increase awareness on mental health and substance abuse in the music industry, trying to denormalize and remove the glamour around such illnesses within the music community.
 
@@ -42,4 +45,3 @@ There are some countries, in particular the UK where some progress has been made
 
 ![The next Rembrandt](./assets/img/posts/20210420/post8-rembrandt2.jpg)
 <small>[The Next Rembrandt](https://www.jwt.com/en/work/thenextrembrandt) is a computer-generated 3-D–printed painting developed by a facial-recognition algorithm that scanned data from 346 known paintings by the Dutch painter in a process lasting 18 months. The portrait is based on 168,263 fragments from Rembrandt’s works.</small>
-
