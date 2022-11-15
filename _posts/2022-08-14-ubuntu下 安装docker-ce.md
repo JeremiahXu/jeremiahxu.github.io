@@ -12,8 +12,6 @@ github:
 
 ---
 
-# ubuntu下安装docker-ce
-
 ## ubuntu环境切换至root用户
 
 + 方式一：
