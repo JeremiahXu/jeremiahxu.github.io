@@ -469,6 +469,44 @@ pre code {
   padding-right: 0;
   padding-left: 0;
 }
+
+.highlight {
+  position: relative;
+}
+
+div.highlight > button {
+  opacity: 0;
+}
+
+div.highlight:hover > button {
+  opacity: 1;
+}
+
+div.highlight > button:active,
+div.highlight > button:focus {
+  opacity: 1;
+}
+
+.copy {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: smaller;
+  color: #f0eeee;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.2rem;
+  opacity: 0;
+  border-color: #f0eeee;
+  border-width: 1px;
+  border-radius: 3px;
+}
+.copy:active,
+.copy:focus,
+.copy:hover {
+  border-color: #bebebe;
+  opacity: 1;
+}
+
 code {
   font-family: monospace;
   font-size: 0.75rem;
