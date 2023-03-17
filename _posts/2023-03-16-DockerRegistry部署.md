@@ -13,6 +13,8 @@ github:
 
 部署Docker容器镜像仓库
 
+参考[官网](https://docs.docker.com/registry/deploying/)链接
+
 ## 自建域为Localhost的registry仓库
 
 1. `localhost:5000/my-ubuntu`从本地registry仓库中拉取映像。
