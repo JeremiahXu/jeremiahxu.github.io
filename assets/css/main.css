@@ -585,7 +585,7 @@ svg {
   color: white;
 }
 ::selection {
-  background: rgba(49, 30, 62, 0.7);
+  background: rgba(51, 144, 255, 0.8);
   color: white;
 }
 .clearfix::before, .clearfix::after {
