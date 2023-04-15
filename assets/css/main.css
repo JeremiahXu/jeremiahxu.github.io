@@ -2058,6 +2058,12 @@ a.read-more:hover {
 }
 
 @media only screen and (max-width: 480px) {
+  .narrow-column{
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 300px;
+  }
   .wrapper {
     max-width: 95%;
   }
