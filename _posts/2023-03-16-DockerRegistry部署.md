@@ -95,27 +95,29 @@ registry仓库现在可以使用了。
    
    测试您现在是否可以从registry仓库中拉取映像或将映像推送到registry仓库。
 
-#### X509 错误：
+### X509 错误：
 
 X509 错误通常表示您在未正确配置 Docker 守护程序的情况下尝试使用自签名证书。请参阅[运行不安全的registry仓库](https://docs.docker.com/registry/insecure/)。
 
 + **Http**类型 
   
-  1. 编辑/etc/docker/daemon.json 
-     
-     ```
+  1. 编辑`/etc/docker/daemon.json` 
+       
+     ```sh
      insecure-registries
      { 
      "insecure-registries":["私库地址"]
      }
      ```
-  
+    
   2. 重启docker
-     
-     ```
+       
+     ```sh
      sudo systemctl restart docker
      ```
      
-     在访问的客户端设置允许insecure-registries
+     在访问的客户端设置允许insecure-registries  
 
-+ **自签名证书**，机构未认可的，需要加证书在`/etc/docker/certs.d/myregistrydomain.com:5000/ca.crt `
++ **自签名证书**
+  
+   机构未认可的，需要在文件夹`/etc/docker/certs.d/myregistrydomain.com:5000/`下放下证书文件`ca.crt `
