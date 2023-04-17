@@ -10,7 +10,9 @@
         <ul class="tags">
             {% for item in (0..site.tags.size) %}{% unless forloop.last %}
                 {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+                {% if (site.tags[this_word].size)  > 1 %}
                 <li><a href="{{ relativebase }}tag.html?tag={{ this_word | url_encode }}" class="tag">{{ this_word }} <span>({{ site.tags[this_word].size }})</span></a></li>
+                {% endif %}
             {% endunless %}{% endfor %}
     {% endif %}
         </ul>
