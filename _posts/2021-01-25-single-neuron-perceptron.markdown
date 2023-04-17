@@ -1,4 +1,5 @@
 ---
+
 layout: post
 read_time: true
 show_date: true
@@ -10,7 +11,9 @@ tags: [machine learning, coding, neural networks]
 author: Armando Maynez
 github:  amaynez/Perceptron/
 mathjax: yes
+
 ---
+
 As an entry point to learning python and getting into Machine Learning, I decided to code from scratch the Hello World! of the field, a single neuron perceptron.
 
 ## What is a perceptron?
@@ -62,11 +65,11 @@ The math behind this magical property of the perceptron is called gradient desce
 My program creates a single neuron neural network tuned to guess if a point is above or below a randomly generated line and generates a visualization based on graphs to see how the neural network is learning through time.
 
 The neuron has 3 inputs and weights to calculate its output:
-    
+
     input 1 is the X coordinate of the point,
     Input 2 is the y coordinate of the point,
     Input 3 is the bias and it is always 1
-
+    
     Input 3 or the bias is required for lines that do not cross the origin (0,0)
 
 The Perceptron starts with weights all set to zero and learns by using 1,000 random points per each iteration.
@@ -76,12 +79,12 @@ The output of the perceptron is calculated with the following activation functio
 
 The error for each point is calculated as the expected outcome of the perceptron minus the real outcome therefore there are only 3 possible error values:
 
-|Expected  |  Calculated | Error|
-|:----:|:----:|:----:|
-|1|-1|1|
-|1|1|0|
-|-1|-1|0|
-|-1|1|-1|
+| Expected | Calculated | Error |
+|:--------:|:----------:|:-----:|
+| 1        | -1         | 1     |
+| 1        | 1          | 0     |
+| -1       | -1         | 0     |
+| -1       | 1          | -1    |
 
 With every point that is learned if the error is not 0 the weights are adjusted according to:
 

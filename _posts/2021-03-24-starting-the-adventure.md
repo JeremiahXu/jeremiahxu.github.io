@@ -1,4 +1,5 @@
 ---
+
 layout: post
 read_time: true
 show_date: true
@@ -8,21 +9,25 @@ img: posts/20210324/starting_adventure.jpg
 tags: [general blogging, thoughts, life]
 author: Armando Maynez
 description: "Midlife career change: a disaster or an opportunity?"
+
 ---
+
 In the midst of a global pandemic caused by the SARS-COV2 coronavirus; I decided to start blogging. I wanted to blog since a long time, I have always enjoyed writing, but many unknowns and having "no time" for it prevented me from taking it up. Things like: "I don't really know who my target audience is", "what would my topic or topics be?", "I don't think I am a world-class expert in anything", and many more kept stopping me from setting up my own blog. Now seemed like a good time as any so with those and tons of other questions in my mind I decided it was time to start.
 
 Funnily, this is not my first post. The birth of the blog came very natural as a way to "document" my newly established pursuit for getting myself into Machine Learning. This new adventure of mine comprises several things, and if I want to succeed I need to be serious about them all:
+
 - I want to start coding again! I used to code a long time ago, starting when I was 8 years old in a Tandy Color Computer hooked up to my parent's TV.
 - Machine Learning is a vast, wide subject, I want to learn the generals, but also to select a few areas to focus on.
 - Setting up a blog to document my journey and share it:
 - Establish a learning and blogging routine. If I don't do this, I am sure this endeavour will die off soon.
 
 As for the focus areas I will start with:
+
 - Neural Networks fundamentals: history, basic architecture and math behind them
 - Deep Neural Networks
 - Reinforcement Learning
 - Current state of the art: what is at the cutting edge now in terms of Deep Neural Networks and Reinforcement Learning?
-  
+
 I selected the above areas to focus on based on my personal interests, I have been fascinated by the developments in reinforcement learning for a long time, in particular [Deep Mind's](https://deepmind.com/blog) awesome [Go](https://deepmind.com/blog/article/innovations-alphago), [Chess](https://deepmind.com/blog/article/alphazero-shedding-new-light-grand-games-chess-shogi-and-go) and [Starcraft](https://deepmind.com/blog/article/AlphaStar-Grandmaster-level-in-StarCraft-II-using-multi-agent-reinforcement-learning) playing agents. Therefore, I started reading a lot about it and even started a personal project for coding a [tic-tac-toe learning agent](./deep-q-learning-tic-tac-toe.html).
 
 With my limited knowledge I have drafted the following learning path:
@@ -45,9 +50,11 @@ Thanks for reading!
 ### P.S. For the geeks like me, here is a snippet on the technical side of the blog.
 
 #### Static Website Generator
+
 I researched a lot on this, when I started I didn't even know I needed a static website generator. I was just sure of one thing, I wanted my blog site to look modern, be easy to update and not to have anything extra or additional content or functionality I did not need.
 
 There is a myriad of website generators nowadays, after a lengthy search the ones I ended up considering are:
+
 - [wordpress](https://wordpress.com/)
 - [wix](https://www.wix.com/)
 - [squarespace](https://www.squarespace.com/)
@@ -75,14 +82,16 @@ The first I tried was [netlify](https://www.netlify.com/), I also set up a [test
 I also tested [gatsby](https://www.gatsbyjs.com/docs/glossary/static-site-generator/) with it's own Gatsby Cloud hosting service, [here is my test site](https://amaynez.gatsbyjs.io/). They also use GitHub as a base to host the source files to build the website, so you create a repository, and it is connected to it. I found the free template offerings quite limited for what I was looking for.
 
 Finally it came the turn for [jekyll](https://jekyllrb.com/), although an older, and slower generator (compared to Hugo and Gatsby), it was created by one of the founders of GitHub, so it's integration with GitHub Pages is quite natural and painless, so much so, that to use them together you don't even have to install Jekyll in your machine! You have two choices:
+
 1. keep it all online, by having one repository in Github keep all the source files, modify or add them online, and having Jekyll build and publish your site to the special `gh-pages` repository everytime you change or add a new file to the source repository.
 2. Have a synchronized local copy of the source files for the website, this way you can edit your blog and customize it in your choice of IDE (Integrated Development Environment). Then, when you update any file on your computer, you just "push" the changes to GitHub, and GitHub Pages automatically uses Jekyll to build and publish your site.
 
 I chose the second option, specially because I can manipulate files, like images, in my laptop, and everytime I sync my local repository with GitHub, they are updated and published automatically. Quite convenient.
-   
+
 After testing with several templates to get the feel for it, I decided to keep Jekyll for my blog for several reasons: the convenience of not having to install anything extra on my computer to build my blog, the integration with GitHub Pages, the ease of use, the future proofing via integration with modern technologies such as react or vue and the vast online community that has produced tons of templates and useful information for issue resolution, customization and added functionality.
 
 I picked up a template, just forked the repository and started modifying the files to customize it, it was fast and easy, I even took it upon myself to add some functionality to the template (it served as a coding little project) like:
+
 - SEO meta tags
 - Dark mode ([configurable in _config.yml file](https://github.com/the-mvm/the-mvm.github.io/blob/a8d4f781bfbc4107b4842433701d28f5bbf1c520/_config.yml#L10))
 - automatic [sitemap.xml](http://the-mvm.github.io/sitemap.xml)
@@ -114,26 +123,30 @@ As a summary, Hugo and Gatsby might be much faster than Jekyll to build the site
 You can use the modified template yourself by [forking my repository](https://github.com/the-mvm/the-mvm.github.io/fork/). Let me know in the comments or feel free to contact me if you are interested in a detailed walkthrough on how to [set it all up](https://github.com/the-mvm/the-mvm.github.io#Installation). 
 
 #### Hosting
+
 Since I decided on Jekyll to generate my site, the choice for hosting was quite obvious, **[Github Pages](https://pages.github.com)** is very nicely integrated with it, it is free, and it has no ads! Plus the domain name isn't too terrible ([the-mvm.github.io](https://the-mvm.github.io)).
 
 ##### Interplanetary File System
+
 To contribute to and test [IPFS](https://github.com/ipfs/ipfs#quick-summary) I also set up a [mirror](https://weathered-bread-8229.on.fleek.co/) in IPFS by using [fleek.co](https://fleek.co). I must confess that it was more troublesome than I imagined, it was definetively not plug and play because of the paths used to fetch resources. The nature of IPFS makes short absolute paths for website resources (like images, css and javascript files) inoperative; the easiest fix for this is to use relative paths, however the same relative path that works for the root directory (i.e. `/index.html`) does not work for links inside directories (i.e. `/tags/`), and since the site is static, while generating it, one must make the distinction between the different directory levels for the page to be rendered correctly.
 
 At first I tried a simple (but brute force solution):
 {% raw %}
+
 ```jekyll
 # determine the level of the current file
 {% assign lvl = page.url | append:'X' | split:'/' | size %}
 # create the relative base (i.e. "../")
 {% capture relativebase %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}
 {% if relativebase == '' %}
-	{% assign relativebase = './' %}
+    {% assign relativebase = './' %}
 {% endif %}
 ...
 # Eliminate unecesary double backslashes
 {% capture post_url %}{{ relativebase }}{{ post.url }}{% endcapture %}
 {% assign post_url = post_url | replace: "//", "/" %}
 ```
+
 {% endraw %}
 This `jekyll/liquid` code was executed in every page (or include) that needed to reference a resource hosted in the same server.
 

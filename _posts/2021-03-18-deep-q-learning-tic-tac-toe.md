@@ -10,10 +10,13 @@ tags: [machine learning, artificial intelligence, reinforcement learning, coding
 author: Armando Maynez
 github: amaynez/TicTacToe/
 toc: yes # leave empty or erase for no TOC
+
 ---
+
 <center><img style="float: left;margin-right: 1em;" src='./assets/img/posts/20210318/Game_Screen.png' width="310" height="300"></center>
 
 ## Background
+
 After many years of a corporate career (17) diverging from computer science, I have now decided to learn Machine Learning and in the process return to coding (something I have always loved!).
 
 To fully grasp the essence of ML I decided to start by [coding a ML library myself](./ML-Library-from-scratch.html), so I can fully understand the inner workings, linear algebra and calculus involved in Stochastic Gradient Descent. And on top learn Python (I used to code in C++ 20 years ago).
@@ -33,7 +36,6 @@ Now, for the fun part, training the network, I followed Deep Mind's own DQN reco
 
 <ul><li>The network will be an approximation for the Q value function or Bellman equation, meaning that the network will be trained to predict the "value" of each move available in a given game state.</li><li>A replay experience memory was implemented. This meant that the neural network will not be trained after each move. Each move will be recorded in a special "memory" alongside with the state of the board and the reward it received for taking such an action (move).</li><li>After the memory is sizable enough, batches of random experiences sampled from the replay memory are used for every training round</li><li>A secondary neural network (identical to the main one) is used to calculate part of the Q value function (Bellman equation), in particular the future Q values. And then it is updated with the main network's weights every <em>n</em> games. This is done so that we are not chasing a moving target.</li></ul>
 
-
 ## Designing the neural network
 
 <center><img src='./assets/img/posts/20210318/Neural_Network_Topology.png' width="540"></center><br>
@@ -43,6 +45,7 @@ The Neural Network chosen takes 9 inputs (the current state of the game) and out
 I started out with two hidden layers of 36 neurons each, all fully connected and activated via ReLu. The output layer was initially activated using sigmoid to ensure that we get a nice value between 0 and 1 that represents the QValue of a given state action pair.
 
 ## The many models...
+
 ### Model 1 - the first try
 
 At first the model was trained by playing vs. a "perfect" AI, meaning a [hard coded algorithm](https://github.com/amaynez/TicTacToe/blob/b429e5637fe5f61e997f04c01422ad0342565640/entities/Game.py#L43) that never looses and that will win if it is given the chance. After several thousand training rounds, I noticed that the Neural Network was not learning much; so I switched to training vs. a completely random player, so that it will also learn how to win. After training vs. the random player, the Neural Network seems to have made progress and is steadily diminishing the loss function over time.
@@ -81,6 +84,7 @@ With the cycling learning rate in place, still no luck after a quick 1,000 games
 <center><img src='./assets/img/posts/20210318/lr_formula.jpeg' width="280"></center>
 
 The resulting learning rate combining the cycles and decay per epoch is:
+
 <center><img src='./assets/img/posts/20210318/LR_cycle_decay.png' width="480">
 <small>Learning Rate = 0.1, Decay = 0.0001, Cycle = 2048 epochs,<br>
         max Learning Rate factor = 10x</small></center>
@@ -90,6 +94,7 @@ true_epoch = epoch - c.BATCH_SIZE
 learning_rate = self.learning_rate*(1/(1+c.DECAY_RATE*true_epoch))
 if c.CLR_ON: learning_rate = self.cyclic_learning_rate(learning_rate,true_epoch)
 ```
+
 ```python
 @staticmethod
 def cyclic_learning_rate(learning_rate, epoch):
@@ -98,11 +103,13 @@ def cyclic_learning_rate(learning_rate, epoch):
     x = np.abs((epoch/c.LR_STEP_SIZE)-(2*cycle)+1)
     return learning_rate+(max_lr-learning_rate)*np.maximum(0,(1-x))
 ```
+
 ```python
 c.DECAY_RATE = learning rate decay rate
 c.MAX_LR_FACTOR = multiplier that determines the max learning rate
 c.LR_STEP_SIZE = the number of epochs each cycle lasts
 ```
+
 <br>With these many changes, I decided to restart with a fresh set of random weights and biases and try training more (much more) games.
 
 <center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves6.png' width="540">
@@ -111,6 +118,7 @@ Wins: 52.66% Losses: 36.02% Ties: 11.32%</small></center>
 
 After **24 hours!**, my computer was able to run 1,000,000 episodes (games played), which represented 7.5 million training epochs of batches of 64 plays (480 million plays learned), the learning rate did decreased (a bit), but is clearly still in a plateau; interestingly, the lower boundary of the loss function plot seems to continue to decrease as the upper bound and the moving average remains constant. This led me to believe that I might have hit a local minimum.
 <a name='Model3'></a>
+
 ### Model 3 - new network topology
 
 After all the failures I figured I had to rethink the topology of the network and play around with combinations of different networks and learning rates.
@@ -138,6 +146,7 @@ These have been the results so far:
 <br>
 
 It is quite interesting to learn how the many parameters (hyper-parameters as most authors call them) of a neural network model affect its training performance, I have played with:
+
 - the learning rate
 - the network topology and activation functions
 - the cycling and decaying learning rate parameters
@@ -152,6 +161,7 @@ And so far the most effective change has been the network topology, but being so
 <tweet>Network topology seems to have the biggest impact on a neural network's learning ability.</tweet>
 
 <a name='Model4'></a>
+
 ### Model 4 - implementing momentum
 
 I [reached out to the reddit community](https://www.reddit.com/r/MachineLearning/comments/lzvrwp/p_help_with_a_reinforcement_learning_project/) and a kind soul pointed out that maybe what I need is to apply momentum to the optimization algorithm. So I did some research and ended up deciding to implement various optimization methods to experiment with:
@@ -166,7 +176,9 @@ I [reached out to the reddit community](https://www.reddit.com/r/MachineLearning
 
 So far, I have not been able to get better results with Model 4, I have tried all the momentum optimization algorithms with little to no success.
 <a name='Model5'></a>
+
 ### Model 5 - implementing one-hot encoding and changing topology (again)
+
 I came across an [interesting project in Github](https://github.com/AxiomaticUncertainty/Deep-Q-Learning-for-Tic-Tac-Toe/blob/master/tic_tac_toe.py) that deals exactly with Deep Q Learning, and I noticed that he used "one-hot" encoding for the input as opposed to directly entering the values of the player into the 9 input slots. So I decided to give it a try and at the same time change my topology to match his:
 
 <center><img src='./assets/img/posts/20210318/Neural_Network_Topology3.png' width="540"></center>
@@ -178,7 +190,9 @@ Still, no luck even with Model 5, so I am starting to think that there could be 
 To test this hypothesis, I decided to implement the same model using Tensorflow / Keras.
 
 <a name='Model6'></a>
+
 ### Model 6 - Tensorflow / Keras
+
 <center><img src='https://www.kubeflow.org/docs/images/logos/TensorFlow.png' width="100" height="100"></center>
 
 ```python
@@ -203,9 +217,11 @@ self.PolicyNetwork.compile(optimizer='adam',
                            loss='mean_squared_error',
                            metrics=['accuracy'])
 ```
+
 As you can see I am reusing all of my old code, and just replacing my Neural Net library with Tensorflow/Keras, keeping even my hyper-parameter constants.
 
 The training function changed to:
+
 ```python
 reduce_lr_on_plateau = ReduceLROnPlateau(monitor='loss',
                                          factor=0.1,
@@ -221,10 +237,13 @@ history = self.PolicyNetwork.fit(np.asarray(states_to_train),
 
 With Tensorflow implemented, the first thing I noticed, was that I had an error in the calculation of the loss, although this only affected reporting and didn't change a thing on the training of the network, so the results kept being the same, **the loss function was still stagnating! My code was not the issue.**
 <a name='Model7'></a>
+
 ### Model 7 - changing the training schedule
+
 Next I tried to change the way the network was training as per [u/elBarto015](https://www.reddit.com/user/elBarto015) [advised me on reddit](https://www.reddit.com/r/reinforcementlearning/comments/lzzjar/i_created_an_ai_for_super_hexagon_based_on/gqc8ka6?utm_source=share&utm_medium=web2x&context=3).
 
 The way I was training initially was:
+
 - Games begin being simulated and the outcome recorded in the replay memory
 - Once a sufficient ammount of experiences are recorded (at least equal to the batch size) the Network will train with a random sample of experiences from the replay memory. The ammount of experiences to sample is the batch size.
 - The games continue to be played between the random player and the network.
