@@ -1086,6 +1086,9 @@ svg.menu-icon-house {
 }
 .top.is-active {
   right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .top:hover {
   color: var(--accent);
