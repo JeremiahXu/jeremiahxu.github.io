@@ -5,7 +5,7 @@ show_date: true
 title: "So,什么是神经网络？"
 date: 2021-04-02
 img: posts/20210402/post7-header.webp
-tags: [neural networks, machine learning, artificial intelligence]
+tags: [neural networks, machine learning, AI]
 category: theory
 author: Armando Maynez
 description: "ELI5: what is a neural network."

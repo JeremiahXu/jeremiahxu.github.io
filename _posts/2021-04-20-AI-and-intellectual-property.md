@@ -6,7 +6,7 @@ show_date: true
 title: "谁拥有 AI 生成的创意作品的版权?"
 date: 2021-04-20
 img: posts/20210420/post8-rembrandt.jpg
-tags: [copyright, creativity, neural networks, machine learning, artificial intelligence]
+tags: [copyright, creativity, neural networks, machine learning, AI]
 category: opinion
 author: Jeremiah Xu
 description: "As neural networks are used more and more in the creative process, text, images and even music are now created by AI, but who owns the copyright for those works?"
