@@ -1,5 +1,5 @@
 # Site settings
-title: JERE知识区
+title: JERE日记
 description: 'There are my notes in daily.' # this means to ignore newlines until "baseurl:"
 permalink: ':title:output_ext'
 baseurl: "" # the subpath of your site, e.g. /blog
