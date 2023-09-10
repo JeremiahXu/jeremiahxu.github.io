@@ -14,7 +14,7 @@ infinite: yes
 		<h1 style="font-size:1.5em;">{{ this_word }}</h1>
 		<div class="archive">
 			<div class="post-list">
-		    {% for post in site.tags[this_word] limit:3 %}
+		    {% for post in site.tags[this_word] %}
 			{% include remove_double_slash.html %}
 				<div class="post">
 					<a class="post-list-title" href="{{ post_url }}">{{ post.title }}</a>
