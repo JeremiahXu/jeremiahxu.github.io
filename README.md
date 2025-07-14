@@ -394,3 +394,21 @@ Adam Blog 2.0 has been designed as a base for users to customize and fit to thei
 ## Questions?
 
 This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to  [file a GitHub issue](https://github.com/the-mvm/the-mvm.github.io/issues/new).
+
+## 导出 Docker 镜像
+
+如果你使用 Docker 部署本博客，可以通过以下命令将镜像导出为 tar 文件：
+
+```sh
+docker save -o jekyll_blog_latest.tar jere/jekyll-blog:latest
+```
+
+这样会在当前目录下生成 `jekyll_blog_latest.tar` 文件，方便迁移或备份 Docker 镜像。
+
+要在另一台机器或环境中导入该镜像，可以使用以下命令：
+
+```sh
+docker load -i jekyll_blog_latest.tar
+```
+
+这样即可将镜像导入到本地 Docker 环境中。
