@@ -255,6 +255,29 @@
       exclude: ['Welcome']
     });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var searchInput = document.getElementById('search-input');
+    var resultsContainer = document.getElementById('results-container');
+    var postList = document.getElementById('post-list');
+
+    // 初始隐藏搜索结果
+    if (resultsContainer) resultsContainer.style.display = 'none';
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        var query = this.value.trim();
+        if (query.length > 0) {
+          if (postList) postList.style.display = 'none';
+          if (resultsContainer) resultsContainer.style.display = '';
+        } else {
+          if (postList) postList.style.display = '';
+          if (resultsContainer) resultsContainer.style.display = 'none';
+        }
+      });
+    }
+  });
+</script>
 
 {% if page.infinite %}
   <script src="{{ relativebase }}assets/js/infinite-jekyll.js"></script>
