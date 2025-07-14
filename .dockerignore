@@ -1,0 +1,12 @@
+.git
+_site
+.bundle
+vendor
+*.log
+*.swp
+*.bak
+tmp
+.vscode
+.idea
+.DS_Store
+Thumbs.db
