@@ -1,17 +1,47 @@
-
+# macOS
 .DS_Store
+
+# JetBrains IDE
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby
+.bundle/
+Gemfile.lock
+vendor/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+*.log
+
+# 临时文件
+*.swp
+*.tmp
+
+# 其他
+.liquidrc
+
+# 你已有的单独文件
+/.vs
+
+# 保留你已有的 .idea 相关单独文件（可选）
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/.gitignore
 /.idea/misc.xml
 /.idea/modules.xml
-/.idea/the-mvm.github.io.iml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
 /.vscode/settings.json
-/.vscode/
-/.idea/
-.liquidrc
-/_site
-/.jekyll-cache
-/.vs
-Gemfile.lock
