@@ -1,0 +1,5 @@
+# 使用官方 Jekyll 镜像作为开发基础
+FROM jekyll/jekyll:4.2.2
+
+WORKDIR /workspace
+COPY . .

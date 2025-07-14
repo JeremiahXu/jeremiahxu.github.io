@@ -1,0 +1,18 @@
+{
+  "name": "Jekyll Blog Dev Container",
+  "build": {
+    "dockerfile": "../Dockerfile.dev",
+    "context": ".."
+  },
+  "forwardPorts": [4000, 28090],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/sh"
+  },
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "rebornix.Ruby",
+    "EditorConfig.EditorConfig"
+  ],
+    "postCreateCommand": "bundle install"
+  // "postCreateCommand": "bundle exec jekyll serve --host 0.0.0.0 --port 4000"
+}
