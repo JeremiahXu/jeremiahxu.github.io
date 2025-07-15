@@ -249,8 +249,17 @@
       searchInput: document.getElementById('search-input'),
       resultsContainer: document.getElementById('results-container'),
       json: '{{ relativebase }}search.json',
-      searchResultTemplate: '<li><a href="{url}" title="{description}">{title}</a><p>{description}</p></li>',
-      noResultsText: 'No results found',
+      searchResultTemplate: `
+      <li>
+        <a class="post-list-title" href="{url}" title="{title}">
+          {title}
+        </a>
+        <div class="post-excerpt">
+          <span>{description}</span>
+          <a class="read-more" href="{url}">read more</a>
+        </div>
+      </li>`,
+      noResultsText: '<span>No results found</span>',
       fuzzy: false,
       exclude: ['Welcome']
     });

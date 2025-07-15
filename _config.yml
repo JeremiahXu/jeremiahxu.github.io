@@ -1,7 +1,7 @@
 # Site settings
 title: JERE知识区
 description: 'There are my notes in daily.' # this means to ignore newlines until "baseurl:"
-permalink: ':title:output_ext'
+permalink: /:title/
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jeremiah.top" # the base hostname & protocol for your site, e.g. http://example.com
 logo: "/assets/img/branding/MVM-logo-full.svg"
@@ -26,7 +26,7 @@ highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code h
 
 # Author settings
 author: Jeremiah # add your name
-author-pic: Myself_Jere.jpg
+author-pic: selfie_jere.jpg
 about-author: Engineer, industry executive, research enthusiast. Avid learner with diverse interests in coding, machine learning, artificial intelligence and reinforcement learning. 10+ years of experience working in internet corporations.
 
 # Contact links

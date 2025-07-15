@@ -100,6 +100,13 @@ hr {
   overflow: visible; /* 2 */
 }
 
+.divider {
+  border: none;
+  border-bottom: 1px solid var(--grey5);
+  margin: 1em 0;
+  height: 0;
+}
+
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
@@ -826,7 +833,7 @@ svg.menu-icon-house {
 .results-search li a {
   font-family: var(--font2);
   text-decoration: none;
-  color: var(--accent-dark);
+  /* color: var(--accent-dark); */
   font-weight: var(--font2-bold);
 }
 
@@ -1880,8 +1887,9 @@ img + small, img + br + small {
 
 /* = = = = = = = = = = Post Lists  = = = = = = = = = = */
 .tag-master h1 {
-    color: var(--grey4);
+    color: var(--grey2);
     text-transform: lowercase;
+    font-size: 1.5em;
 }
 .list-group {
   border-top: 1px solid var(--grey4);
