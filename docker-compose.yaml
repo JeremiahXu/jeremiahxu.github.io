@@ -8,6 +8,11 @@ services:
     ports:
       - "28090:80"
     container_name: jere-jekyll-blog
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.blog.rule=Host(`jeremiah.top`) || Host(`jeremiah.ltd`) || Host(`www.jeremiah.top`) || Host(`www.jeremiah.ltd`)"
+      - "traefik.http.routers.blog.entrypoints=websecure"
+      - "traefik.http.routers.blog.tls.certresolver=letsencrypt"
     networks:
       - jere-net
 
