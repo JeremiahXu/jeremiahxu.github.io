@@ -6,7 +6,7 @@ title: Refit:用于.NET Core，Xamarin和.NET的自动类型安全REST库
 date: 2022-09-19 09:04:09 +0800
 description: 用于.NET Core，Xamarin和.NET的自动类型安全REST库
 img: posts/default/Snipaste_2022-08-29_11-13-46.png
-tags: [.NET,Refit,后端]
+tags: [dotnet,Refit,后端]
 author: Jeremiah
 github: 
 ---
