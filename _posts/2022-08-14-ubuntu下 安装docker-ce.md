@@ -6,7 +6,7 @@ title: ubuntu环境安装docker-ce
 date: 2022-08-14 00:59:43 +0800 
 description: linux下安装docker.
 img: posts/20220814/Snipaste_2022-08-16_13-59-49.png
-tags: [ docker]
+tags: [运维,docker]
 author: Jeremiah
 github: 
 
