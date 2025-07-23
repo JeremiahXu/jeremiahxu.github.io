@@ -24,6 +24,9 @@ html {
   --font2-light:      200;
   --font2-regular:    400;
   --font2-bold:       700;
+  --scrollbar-thumb: var(--main);
+  --scrollbar-thumb-hover: var(--main-dim);
+  --scrollbar-track: var(--grey5);
 }
 
 html[data-theme="dark"]  {
@@ -40,6 +43,9 @@ html[data-theme="dark"]  {
   --background:   #2B323B;
   --shadow:       rgba(0,0,0,.3);
   --github:       #000;
+  --scrollbar-thumb: var(--main);
+  --scrollbar-thumb-hover: var(--main-dim);
+  --scrollbar-track: var(--grey5);
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -1327,7 +1333,17 @@ path.fa-secondary {
   }
   .toc-content{
     max-height: calc(100vh - 7em);
-    overflow: scroll;
+    overflow: auto;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+  .toc-content::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+  .toc-content::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+  .toc-content::-webkit-scrollbar {
+    background: var(--scrollbar-track);
   }
 }
 /* = = = = = = = = = = Tags = = = = = = = = = = */
