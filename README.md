@@ -406,6 +406,9 @@ docker save -o jekyll_blog_latest.tar jere/jekyll-blog:latest
 
 这样会在当前目录下生成 `jekyll_blog_latest.tar` 文件，方便迁移或备份 Docker 镜像。
 
+
+---
+### 导入镜像
 要在另一台机器或环境中导入该镜像，可以使用以下命令：
 
 ```sh
@@ -413,6 +416,14 @@ docker load -i jekyll_blog_latest.tar
 ```
 
 这样即可将镜像导入到本地 Docker 环境中。
+
+---
+### 镜像备份
+为镜像打上日期标签：
+
+```bash
+docker tag jere/jekyll-blog:latest jere/jekyll-blog:$(date +%Y%m%d)
+```
 
 ---
 
