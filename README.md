@@ -395,6 +395,7 @@ Adam Blog 2.0 has been designed as a base for users to customize and fit to thei
 
 This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to  [file a GitHub issue](https://github.com/the-mvm/the-mvm.github.io/issues/new).
 
+---
 ## 导出 Docker 镜像
 
 如果你使用 Docker 部署本博客，可以通过以下命令将镜像导出为 tar 文件：
@@ -412,3 +413,41 @@ docker load -i jekyll_blog_latest.tar
 ```
 
 这样即可将镜像导入到本地 Docker 环境中。
+
+---
+
+## POST中的图片建议
+
+在你的项目中，图片路径 `img: posts/2025-04-08/img.png` 通常会在文章模板中以 `<img>` 标签渲染。为了同时兼容 PC 和移动端，建议：
+
+1. **图片本身**：  
+   - 建议宽度为 1200px 左右（最大不超过 1920px），高度按比例自适应，格式为 `jpg` 或 `png`，压缩后大小控制在 200KB 以内。
+   - 若图片内容简单，可适当减小分辨率（如 800px 宽），以提升移动端加载速度。
+
+2. **前端样式**：  
+   - 在你的 CSS 中，确保图片样式为响应式。你可以在 main.css 或 SASS 文件中添加如下样式：
+
+````css
+/* ...existing code... */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* ...existing code... */
+````
+
+这样，图片会根据父容器宽度自适应，无论在 PC 还是手机端都能良好显示。
+
+3. **HTML 模板**：  
+   - 确保模板输出的 `<img>` 标签没有写死宽高，或者使用 `width="100%"`，让 CSS 控制尺寸。
+
+你可以参考 `_includes/post.html` 或相关模板文件，确认图片渲染方式。
+
+**总结**：  
+- 图片宽度建议 800~1200px，体积小于 200KB。
+- 样式用 `max-width: 100%; height: auto;` 响应式适配。
+- 模板不要写死图片宽高。
+
+这样即可兼容 PC 和移动端。
