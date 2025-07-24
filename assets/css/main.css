@@ -27,6 +27,7 @@ html {
   --scrollbar-thumb: rgba(100, 100, 100, 0.5);
   --scrollbar-thumb-hover: rgba(100, 100, 100, 0.8);
   --scrollbar-track: rgba(0, 0, 0, 0);
+  --border-color: #d1d9e0;
 }
 
 html[data-theme="dark"]  {
@@ -43,6 +44,7 @@ html[data-theme="dark"]  {
   --background:   #2B323B;
   --shadow:       rgba(0,0,0,.3);
   --github:       #000;
+  --border-color: #3d444d;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -451,7 +453,7 @@ a:hover{
     color:var(--accent)
 }
 table {
-      border-left: 6px solid var(--accent);
+      /* border-left: 6px solid var(--accent); */
 }
 table td, table th {
     border: 0;
@@ -459,6 +461,25 @@ table td, table th {
     text-align: left;
     background-color: var(--grey5);
 }
+
+.page-content table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  display: block;
+  overflow: auto;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  white-space: nowrap;
+}
+
+/* 表格单元格样式优化 */
+.page-content table td,
+.page-content table th {
+  border: 1px solid var(--border-color, #ddd);
+  background-color: rgba(0, 0, 0, 0);
+}
+
 blockquote {
     border-left: 10px solid var(--grey4);
     padding-left: 1em;
