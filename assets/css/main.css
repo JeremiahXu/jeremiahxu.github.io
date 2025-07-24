@@ -24,9 +24,9 @@ html {
   --font2-light:      200;
   --font2-regular:    400;
   --font2-bold:       700;
-  --scrollbar-thumb: var(--main);
-  --scrollbar-thumb-hover: var(--main-dim);
-  --scrollbar-track: var(--grey5);
+  --scrollbar-thumb: rgba(100, 100, 100, 0.5);
+  --scrollbar-thumb-hover: rgba(100, 100, 100, 0.8);
+  --scrollbar-track: rgba(0, 0, 0, 0);
 }
 
 html[data-theme="dark"]  {
@@ -43,9 +43,6 @@ html[data-theme="dark"]  {
   --background:   #2B323B;
   --shadow:       rgba(0,0,0,.3);
   --github:       #000;
-  --scrollbar-thumb: var(--main);
-  --scrollbar-thumb-hover: var(--main-dim);
-  --scrollbar-track: var(--grey5);
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -1279,7 +1276,6 @@ path.fa-secondary {
 }
 .toc-content a {
   text-decoration: none;
-  padding: 5px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -1343,6 +1339,20 @@ path.fa-secondary {
     background: var(--scrollbar-thumb-hover);
   }
   .toc-content::-webkit-scrollbar {
+    background: var(--scrollbar-track);
+  }
+
+  pre {
+  overflow-x: auto;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+  pre::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+  pre::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+  pre::-webkit-scrollbar {
     background: var(--scrollbar-track);
   }
 }
