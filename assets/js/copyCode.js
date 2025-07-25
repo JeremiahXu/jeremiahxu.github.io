@@ -11,7 +11,7 @@ document
       button.addEventListener('click', function () {
         var code = pre.querySelector('code').innerText.trim();
         navigator.clipboard.writeText(code);
-        button.innerText = 'COPIED';
+        button.innerText = 'Copied!';
         setTimeout(function () {
           button.innerText = copyText;
         }, 1500);
