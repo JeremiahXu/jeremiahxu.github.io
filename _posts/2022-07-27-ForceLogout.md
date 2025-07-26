@@ -1,3 +1,17 @@
+---
+layout: post
+read_time: true
+show_date: true
+title: 单点强制下线  VS  实时强制下线
+date: 2022-07-27 12:00:00 +0800
+description: 同一时间该账号仅能在一个设备（或登录端）上保持在线状态。
+img: posts/2022-07-27-ForceLogout/ForceLogout.png
+tags: [后端,dotnet]
+author: Jeremiah
+github: 
+---
+
+
 ## 单点强制下线
 
 - 单设备登录限制
