@@ -5,112 +5,72 @@ show_date: true
 title: "So,什么是神经网络？"
 date: 2021-04-02
 img: posts/20210402/post7-header.webp
-tags: [neural networks, machine learning, AI]
-category: theory
-author: Armando Maynez
-description: "ELI5: what is a neural network."
+tags: [机器学习, 神经网络]
+author: Jeremiah
+description: "ELI5: 什么是神经网络."
 ---
-The omnipresence of technology nowadays has made it commonplace to read news about AI, just a quick glance at today's headlines, and I get:
-- [This Powerful AI Technique Led to Clashes at Google and Fierce Debate in Tech.](https://www.morningbrew.com/emerging-tech/stories/2021/03/29/one-biggest-advancements-ai-also-sparked-fierce-debate-heres?utm_source=morning_brew)
-- [How A.I.-powered companies dodged the worst damage from COVID](https://fortune.com/2021/04/02/ai-forecasting-supply-chain-factories-caterpillar-agco/)
-- [AI technology detects ‘ticking time bomb’ arteries](https://www.mobihealthnews.com/news/emea/ai-technology-detects-ticking-time-bomb-arteries)
-- [AI in Drug Discovery Starts to Live Up to the Hype](https://www.genengnews.com/insights/ai-in-drug-discovery-starts-to-live-up-to-the-hype/)
-- [Pentagon seeks commercial solutions to get its data ready for AI](https://www.c4isrnet.com/artificial-intelligence/2021/04/02/pentagon-seeks-commercial-solutions-to-get-its-data-ready-for-ai/)
-  
+如今，科技无处不在，阅读有关人工智能的新闻已是司空见惯。这些新闻标题涵盖了商业、制造、供应链、医药和生物技术，甚至国防等领域。毫无疑问，人工智能领域的进步，尤其是机器学习和深度神经网络，已经渗透到我们的日常生活中，并将持续存在。但是，当我们说“人工智能”时，普通民众知道我们在说什么吗？我认为大多数人正确地想象它是一种计算机算法，或者也许更有冒险精神的人会想到一台物理机器、一个先进的计算机实体，甚至是一个机器人，它会随着我们给它带来的每一个用例而变得越来越聪明。大多数人都是对的，当提到“人工智能”时，它确实是一种由计算机运行的算法，而这正是他们知识的边界所在。
 
-Topics from business, manufacturing, supply chain, medicine and biotech and even defense are covered in those news headlines, definitively the advancements on the fields of artificial intelligence, in particular machine learning and deep neural networks have permeated into our daily lives and are here to stay. But, do the general population know what are we talking about when we say "an AI"?  I assume most people correctly imagine a computer algorithm or perhaps the more adventurous minds think of a physical machine, an advanced computer entity or even a robot, getting smarter by itself with every use-case we throw at it. And most people will be right, when "an AI" is mentioned it is indeed an algorithm run by a computer, and there is where the boundary of their knowledge lies. 
+他们说学习某件事的最好方法是尝试解释它，所以在个人练习中，我将尝试做一个 ELI5 (**E**xplain it **L**ike **I** am **5**) 版本的神经网络。
 
-They say that the best way to learn something is to try to explain it, so in a personal exercise I will try to do an ELI5 (**E**xplain it **L**ike **I** am **5**) version of what is a neural network.
+让我们先从一点历史开始，人类对智能机器的想法已经摸索了一段时间了，有人甚至说人工智能的想法是由古希腊人构想出来的（ 来源 ），历史上也曾多次尝试设计“智能”机器，其中最引人注目的是查尔斯·巴贝奇于 1837 年发明的“分析机”。
 
-Let's start with a little history, humans have been tinkering with the idea of an intelligent machine for a while now, some even say that the idea of artificial intelligence was conceived by the ancient greeks ([source](https://www.thinkautomation.com/bots-and-ai/a-history-of-automation-the-rise-of-robots-and-ai/)), and several attempts at devising "intelligent" machines have been made through history, a notable one was 'The Analytical Engine' created by Charles Babbage in 1837:
+之后, 上世纪中叶，为了构建大脑运作模型，神经网络应运而生。大约在那个时候，康奈尔大学的弗兰克·罗森布拉特（Frank Rosenblatt）为了理解普通家蝇眼睛里存在的简单决策系统，提出了[perceptron](./single-neuron-perceptron)感知器的概念。感知器是一个非常简单的系统，它通过基本的数学运算处理特定的输入并产生输出。
 
-![The Analytical Engine](./assets/img/posts/20210402/post7-analytical-engine.jpg)
-<small>The Analytical Engine of Charles Babbage - 1837</small>
-
-Then, in the middle of last century by trying to create a model of how our brain works, Neural Networks were born. Around that time, Frank Rosenblatt at Cornell trying to understand the simple decision system present in the eye of a common housefly,  proposed the idea of a [perceptron](./single-neuron-perceptron.html), a very simple system that processes certain inputs with basic math operations and produces an output.
+这个想法非常强大，即使在今天，它仍然是我们所说的人工智能的基本组成部分之一。
 
 ![A perceptron](./assets/img/posts/20210125/Perceptron.png)
 
-To illustrate, let's say that the brain of the housefly is a perceptron, its inputs are whatever values are produced by the multiple cells in its eyes, when the eye cell detects "something" it's output will be a 1, and if there is nothing a 0. Then the combination of all those inputs can be processed by the perceptron (the fly brain), and the output is a simple 0 or 1 value. If it is a 1 then the brain is telling the fly to flee and if it is a 0 it means it is safe to stay where it is.
+为了说明这一点，假设苍蝇的大脑是一个感知器，它的输入是其眼睛中多个细胞产生的任何值。当眼睛细胞检测到“某物”时，它的输出为 1，如果没有检测到任何物体，则输出为 0。然后，感知器（苍蝇的大脑）可以处理所有这些输入的组合，输出为简单的 0 或 1。如果输出为 1，则大脑指示苍蝇逃跑；如果输出为 0，则表示留在原地是安全的。
 
 ![A housefly eye](./assets/img/posts/20210402/post7-housefly-eye.jpg)
 
-We can imagine then that if many of the eye cells of the fly produce 1s, it means that an object is quite near, and therefore the perceptron will calculate a 1, it is time to flee.
+我们可以想象，如果苍蝇的许多眼细胞都产生了 1，这意味着物体非常近，因此感知器将计算出 1，是时候逃跑了。
 
 ![The fly vision](./assets/img/posts/20210402/post7-fly-vision.jpg)
 
-The perceptron is just a math operation, one that multiplies certain input values with preset "parameters" (called weights) and adds up the resulting multiplications to generate a value.
+感知器只是一种数学运算，它将某些输入值与预设的“参数”（称为权重）相乘，然后将得到的乘积相加以生成一个值。
 
-Then the magic spark was ignited, the parameters (weights) of the perceptron could be "learnt" by a process of minimizing the difference between known results of particular observations, and what the perceptron is actually calculating. It is this process of learning what we call **training the neural network**.
+魔法火花随之迸发，感知器的参数（权重）可以通过最小化特定观测的已知结果与感知器实际计算结果之间的差异的过程进行“学习”。这个学习过程，我们称之为 **神经网络训练**.
 
-<tweet>This idea is so powerful that even today it is one of the fundamental building blocks of what we call AI.</tweet>
+从这里我将尝试解释这个简单的概念如何能够有如此多样化的应用，如自然语言处理（想想 Alexa）、图像识别（如通过 CTR 扫描进行医学诊断）、自动驾驶汽车等。
 
-From this I will try to explain how this simple concept can have such diverse applications as natural language processing (think Alexa), image recognition like medical diagnosis from a CTR scan, autonomous vehicles, etc.
-
-A basic neural network is a combination of perceptrons in different arrangements, the perceptron therefore was downgraded from "fly brain" to "network neuron".
+一个基本的神经网络是由不同排列的感知器组合而成的，感知器因此被从“苍蝇大脑”降级为“网络神经元”。
 ![A multilayer perceptron](./assets/img/posts/20210402/post7-multilayer-perceptron.png)
 
-A neural network has different components, in its basic form it has:
-- Input
-- Hidden layers
-- Output
+神经网络具有不同的组成部分，其基本形式包括：
+- Input 输入
+- Hidden layers 隐藏层
+- Output 输出
 
 ![Neural network components](./assets/img/posts/20210228/nnet_flow.gif)
 
 ### Input
 
-The inputs of a neural network are in their essence just numbers, therefore anything that can be converted to a number can become an input. Letters in a text, pixels in an image, frequencies in a sound wave, values from a sensor, etc. are all different things that when converted to a numerical value serve as inputs for the neural network. This is one of the reasons why applications of neural networks are so diverse.
+神经网络的输入本质上就是数字，因此任何可以转换为数字的东西都可以成为输入。文本中的字母、图像中的像素、声波中的频率、传感器的值等等，都是不同的事物，它们在转换为数值后，都可以作为神经网络的输入。这也是神经网络应用如此多样化的原因之一。
 
-Inputs can be as many as one need for the task at hand, from maybe 9 inputs to teach a neural network how to play tic-tac-toe to thousands of pixels from a camera for an autonomous vehicle. Since the input of a perceptron needs to be a single value, if for example a color pixel is chosen as input, it most likely will be broken into three different values; its  red, green and blue components, hence each pixel will become 3 different inputs for the neural network.
+输入的数量可以根据任务需求而定，从训练神经网络玩井字游戏所需的9个输入，到自动驾驶汽车摄像头的数千个像素。由于感知器的输入必须是单个值，例如，如果选择一个彩色像素作为输入，它很可能会被分解成三个不同的值：红色、绿色和蓝色分量，因此每个像素将成为神经网络的三个不同输入。
 
 ### Hidden layers
 
-A "layer" within a neural network is just a group of perceptrons that all perform the same exact mathematical operation to the inputs and produce an output. The catch is that each of them have different weights (parameters), therefore their output for a given input will be different amongst them. There are many types of layers, the most typical of them being a "dense" layer, which is another word to say that all the inputs are connected to all the neurons (individual perceptrons), and as said before, each of these connections have a weight associated with it, so that the operation that each neuron performs is a simple weighted sum of all the inputs.
+神经网络中的“层”其实就是一组感知器，它们对输入执行完全相同的数学运算并产生输出。关键在于，每个感知器都有不同的权重（参数），因此给定输入时，它们产生的输出也会有所不同。层有很多种类型，其中最典型的是“密集”层，换句话说，所有输入都连接到所有神经元（单个感知器），并且如前所述，每个连接都具有相应的权重，因此每个神经元执行的操作只是所有输入的简单加权和。
 
 ![post7-dense-layers](./assets/img/posts/20210402/post7-dense-layers.png)
 
-The hidden layer is then typically connected to another dense layer, and their connection means that each output of a neuron from the first layer is treated effectively as an input for the subsequent one, and it is thus connected to every neuron.
+隐藏层通常连接到另一个密集层，它们的连接意味着第一层神经元的每个输出都被有效地视为后续层的输入，因此它连接到每个神经元。
 
-A neural network can have from one to as many layers as one can think, and the number of layers depends solely on the experience we have gathered on the particular problem we would like to solve.
+神经网络可以具有从一层到人们能想到的任意多层的层数，并且层数完全取决于我们在想要解决的特定问题上积累的经验。
 
-Another critical parameter of a hidden layer is the number of neurons it has, and again, we need to rely on experience to determine how many neurons are needed for a given problem. I have seen networks that vary from a couple of neurons to the thousands. And of course each hidden layer can have as many neurons as we please, so the number of combinations is vast.
+隐藏层的另一个关键参数是神经元的数量，同样，我们需要依靠经验来确定特定问题所需的神经元数量。我见过的网络从几个神经元到数千个神经元不等。当然，每个隐藏层可以拥有任意数量的神经元，因此组合的数量非常多。
 
-To the number of layers, their type and how many neurons each have, is what we call the *network topology* (including the number of inputs and outputs).
+层数、层类型以及每层有多少个神经元，就是我们所说的*网络拓扑结构* （包括输入和输出的数量）。
 
 ### Output
 
-At the very end of the chain, another layer lies (which behaves just like a hidden layer), but has the peculiarity that it is the final layer, and therefore whatever it calculates will be the output values of the whole network. The number of outputs the network has is a function of the problem we would like to solve. It could be as simple as one output, with its value representing a probability of an action (like in the case of the flee reaction of the housefly), to many outputs, perhaps if our network is trying to distinguish images of animals, one would have an output for each animal species, and the output would represent how much confidence the network has that the particular image belongs to the corresponding species.
+在这条链的最末端，还有另一层（其行为类似于隐藏层），但它的特点是它是最后一层，因此它计算的结果将成为整个网络的输出值。网络的输出数量取决于我们想要解决的问题。它可以简单到只有一个输出，其值代表某个动作的概率（例如家蝇的逃跑反应）；也可以有多个输出，例如，如果我们的网络试图区分动物图像，那么每个动物物种都会有一个输出，而这个输出代表网络对特定图像属于相应物种的置信度。
 
-As we said, the neural network is just a collection of individual neurons, doing basic math operations on certain inputs in series of layers that eventually generate an output. This mesh of neurons is then "trained" on certain output values from known cases of the inputs; once it has learned it can then process new inputs, values that it has never seen before with surprisingly accurate results.
+正如我们所说，神经网络只是单个神经元的集合，它们在一系列层级中对某些输入进行基本的数学运算，最终产生输出。然后，这组神经元网络会根据已知输入情况的特定输出值进行“训练”；一旦它学会了，它就能处理新的输入，即使是它从未见过的输入值，也能获得令人惊讶的精确结果。
 
-Many of the problems neural networks solve, could be certainly worked out by other algorithms, however, since neural networks are in their core very basic operations, once trained, they are extremely efficient, hence much quicker and economical to produce results.
+神经网络解决的许多问题当然可以通过其他算法解决，但是，由于神经网络的核心是极其基本的操作，一旦经过训练，它们就会非常高效，因此可以更快、更经济地产生结果。
 
-There are a few more details on how a simple neural network operate that I purposedly left out to make this explanation as simple as possible. Thinks like biases, the activation functions and the math behind learning, the backpropagation algorithm, I will leave to a more in depth article. I will also write (perhaps in a series) about the more complex topologies combining different types of layers and other building blocks, a part from the perceptron.
-
-![Alexa recognizing speach](./assets/img/posts/20210402/post7-alexa.png)
-
-Things like "Alexa", are a bit more complex, but work on exactly the same principles. Let's break down for example the case of asking "Alexa" to play a song in spotify. Alexa uses several different neural networks to acomplish this:
-
-#### 1. Speech recognition
-
-As a basic input we have our speech: the command **"Alexa, play Van Halen"**. This might seem quite simple for us humans to process, but for a machine is an incredible difficult feat to be able to understand speech, things like each individual voice timbre, entonation, intention and many more nuances of human spoken language make it so that traditional algorithms have struggled a lot with this. In our simplified example let's say that we use a neural network to transform our spoken speech into text characters a computer is much more familiarized to learn.
-
-#### 2. Understanding what we mean (Natural Language Understanding)
-
-Once the previous network managed to succesfuly convert our spoken words into text, there comes the even more difficult task of making sense of what we said. Things that we humans take for granted such as context, intonation and non verbal communication, help give our words meaning in a very subtle, but powerful way, a machine will have to do with much less information to correctly understand what we mean. It has to correctly identify the intention of our sentence and the subject or entities of what we mean.
-
-![post7-alexa-natural-lang](./assets/img/posts/20210402/post7-alexa-natural-lang.png)
-
-The neural network has to identify that it received a command (by identifying its name), the command ("play music"), and our choice ("Van Halen"). And it does so by means of simple math operations as described before. Of course the network involved is quite complex and has different types of neurons and connection types, but the underlying principles remain.
-
-#### 3. Replying to us
-
-Once Alexa understood what we meant, it then proceeds to execute the action of the command it interpreted and it replies to us in turn using natural language. This is accomplished using a technique called speech synthesis, things like pitch, duration and intensity of the words and phonems are selected based on the "meaning" of what Alexa will respond to us: "Playing songs by Van Halen on Spotify" sounding quite naturally. And all is accomplished with neural networks executing many simple math operations.
-
-![post7-alexa-steps](./assets/img/posts/20210402/post7-alexa-steps.png)
-<small>Although it seems quite complex, the process for AI to understand us can be boiled down to simple math operations</small>
-
-Of course Amazon's Alexa neural networks have undergone quite a lot of training to get to the level where they are, the beauty is that once trained, to perform their magic they just need a few mathematical operations.
-
-As said before, I will continue to write about the basics of neural networks, the next article in the series will dive a bit deeper into the math behind a basic neural network. 
-
+为了尽可能简化解释，我特意省略了一些关于简单神经网络运作的细节。诸如偏差、激活函数、学习背后的数学原理以及反向传播算法等概念，我将留到另一篇更深入的文章中探讨。除了感知器之外，我还会撰写（或许会以系列形式）关于结合不同类型的层和其他构建块的更复杂拓扑结构的文章。
