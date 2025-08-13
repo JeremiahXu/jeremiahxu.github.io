@@ -15,19 +15,19 @@ description: "ELI5: 什么是神经网络."
 
 让我们先从一点历史开始，人类对智能机器的想法已经摸索了一段时间了，有人甚至说人工智能的想法是由古希腊人构想出来的（ 来源 ），历史上也曾多次尝试设计“智能”机器，其中最引人注目的是查尔斯·巴贝奇于 1837 年发明的“分析机”。
 
-之后, 上世纪中叶，为了构建大脑运作模型，神经网络应运而生。大约在那个时候，康奈尔大学的弗兰克·罗森布拉特（Frank Rosenblatt）为了理解普通家蝇眼睛里存在的简单决策系统，提出了[perceptron](./single-neuron-perceptron)感知器的概念。感知器是一个非常简单的系统，它通过基本的数学运算处理特定的输入并产生输出。
+之后, 上世纪中叶，为了构建大脑运作模型，神经网络应运而生。大约在那个时候，康奈尔大学的弗兰克·罗森布拉特（Frank Rosenblatt）为了理解普通家蝇眼睛里存在的简单决策系统，提出了[perceptron](../single-neuron-perceptron)感知器的概念。感知器是一个非常简单的系统，它通过基本的数学运算处理特定的输入并产生输出。
 
 这个想法非常强大，即使在今天，它仍然是我们所说的人工智能的基本组成部分之一。
 
-![A perceptron](./assets/img/posts/20210125/Perceptron.png)
+![A perceptron](../assets/img/posts/20210125/Perceptron.png)
 
 为了说明这一点，假设苍蝇的大脑是一个感知器，它的输入是其眼睛中多个细胞产生的任何值。当眼睛细胞检测到“某物”时，它的输出为 1，如果没有检测到任何物体，则输出为 0。然后，感知器（苍蝇的大脑）可以处理所有这些输入的组合，输出为简单的 0 或 1。如果输出为 1，则大脑指示苍蝇逃跑；如果输出为 0，则表示留在原地是安全的。
 
-![A housefly eye](./assets/img/posts/20210402/post7-housefly-eye.jpg)
+![A housefly eye](../assets/img/posts/20210402/post7-housefly-eye.jpg)
 
 我们可以想象，如果苍蝇的许多眼细胞都产生了 1，这意味着物体非常近，因此感知器将计算出 1，是时候逃跑了。
 
-![The fly vision](./assets/img/posts/20210402/post7-fly-vision.jpg)
+![The fly vision](../assets/img/posts/20210402/post7-fly-vision.jpg)
 
 感知器只是一种数学运算，它将某些输入值与预设的“参数”（称为权重）相乘，然后将得到的乘积相加以生成一个值。
 
@@ -36,14 +36,14 @@ description: "ELI5: 什么是神经网络."
 从这里我将尝试解释这个简单的概念如何能够有如此多样化的应用，如自然语言处理（想想 Alexa）、图像识别（如通过 CTR 扫描进行医学诊断）、自动驾驶汽车等。
 
 一个基本的神经网络是由不同排列的感知器组合而成的，感知器因此被从“苍蝇大脑”降级为“网络神经元”。
-![A multilayer perceptron](./assets/img/posts/20210402/post7-multilayer-perceptron.png)
+![A multilayer perceptron](../assets/img/posts/20210402/post7-multilayer-perceptron.png)
 
 神经网络具有不同的组成部分，其基本形式包括：
 - Input 输入
 - Hidden layers 隐藏层
 - Output 输出
 
-![Neural network components](./assets/img/posts/20210228/nnet_flow.gif)
+![Neural network components](../assets/img/posts/20210228/nnet_flow.gif)
 
 ### Input
 
@@ -55,7 +55,7 @@ description: "ELI5: 什么是神经网络."
 
 神经网络中的“层”其实就是一组感知器，它们对输入执行完全相同的数学运算并产生输出。关键在于，每个感知器都有不同的权重（参数），因此给定输入时，它们产生的输出也会有所不同。层有很多种类型，其中最典型的是“密集”层，换句话说，所有输入都连接到所有神经元（单个感知器），并且如前所述，每个连接都具有相应的权重，因此每个神经元执行的操作只是所有输入的简单加权和。
 
-![post7-dense-layers](./assets/img/posts/20210402/post7-dense-layers.png)
+![post7-dense-layers](../assets/img/posts/20210402/post7-dense-layers.png)
 
 隐藏层通常连接到另一个密集层，它们的连接意味着第一层神经元的每个输出都被有效地视为后续层的输入，因此它连接到每个神经元。
 

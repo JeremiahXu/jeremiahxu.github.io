@@ -10,14 +10,14 @@ tags: [机器学习, 神经网络]
 author: Jeremiah
 ---
 这听起来一定很疯狂，在这个时代，当我们拥有如此众多令人惊叹的机器学习库和工具包时，它们都是开源的，都有很好的文档记录并且易于使用，我却决定从头开始创建自己的 ML（机器学习）库。
-<center><img src="./assets/img/posts/20210228/ML_cloud.jpg" width="480px"></center>
+<center><img src="../assets/img/posts/20210228/ML_cloud.jpg" width="480px"></center>
 让我试着解释一下：我正在沉浸在机器学习的世界里，为了做到这一点，我想深入了解它的基本概念和基础，我认为最好的方法就是从头开始自己创建一个基础神经网络库的全部代码。这样我就能深入了解机器学习算法背后的数学原理。
 
 这样做的另一个好处是，由于我也在学习 Python，所以这个实验对我来说是很好的锻炼。
 
-称其为机器学习库可能有点牵强，因为我只是想创建一个 **多神经元multi-neuron, 多层 [perceptron](./single-neuron-perceptron)**.
+称其为机器学习库可能有点牵强，因为我只是想创建一个 **多神经元multi-neuron, 多层 [perceptron](../single-neuron-perceptron)**.
 
-<center><img src="./assets/img/posts/20210228/nnet_flow.gif"></center>
+<center><img src="../assets/img/posts/20210228/nnet_flow.gif"></center>
 
 该库最初功能非常有限，仅具有以下功能：
 - **创建**神经网络，根据以下参数：
@@ -30,13 +30,13 @@ author: Jeremiah
 
 我将模型限制为顺序结构，并且各层只能是密集dense/全fully连接的，这意味着每个神经元都与下一层的每一个神经元相连。另外，作为限制，我实现的唯一激活函数是 sigmoid 函数：
 
-<center><img src="./assets/img/posts/20210228/nn_diagram.png"></center>
+<center><img src="../assets/img/posts/20210228/nn_diagram.png"></center>
 
 对我的神经网络进行编码后，我用一个非常基本的问题，即著名的 XOR （异或） 问题对其进行了测试。
 
 XOR 是一种逻辑运算，由于其线性限制，无法由单个感知器解决：
 
-<center><img src="./assets/img/posts/20210228/xor_problem.png"></center>
+<center><img src="../assets/img/posts/20210228/xor_problem.png"></center>
 
 如您所见，当在 X、Y 平面上绘制时，逻辑运算符 AND 和 OR 有一条线可以清楚地将假点与真点分开，因此感知器可以轻松地学习对它们进行分类；但是，对于 XOR，没有一条直线可以做到这一点，因此需要多层感知器来完成该任务。
 
@@ -110,7 +110,7 @@ axs1.plot_surface(x, y, z,
 ```
 
 最终结果看起来是这样的：
-<center><img src="./assets/img/posts/20210228/Surface_XOR.jpg"></center>
+<center><img src="../assets/img/posts/20210228/Surface_XOR.jpg"></center>
 
 
 然后我们将 z 数组重塑为一维数组，以使用它来为散点图着色：
@@ -125,11 +125,11 @@ scatter = axs2.scatter(x, y,
                        vmin=0,
                        vmax=1)
 ```
-<center><img src="./assets/img/posts/20210228/Final_XOR_Plot.jpg"></center>
+<center><img src="../assets/img/posts/20210228/Final_XOR_Plot.jpg"></center>
 
 为了真正看到学习过程中的进步，我创建了一个 Matplotlib 动画，看着它学习的过程非常有趣。
 
-<center><video width="598" height="298" controls autoplay loop>
+<div width="100%"><video width="100%" height="auto" controls autoplay loop>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAF5nJtZGF0AAACrgYF//+q
 3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2MSByMzA0OCBiODZhZTNjIC0gSC4yNjQvTVBF
 Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMSAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
@@ -6961,7 +6961,7 @@ B8gAAAh0AAADrQAABTsAAAikAAAM1AAABeQAAAmAAAADmgAACpgAAAvVAAAE2wAABG8AAAeKAAAE
 AAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAl
 qXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNDUuMTAw
 ">
-  <img src="./assets/img/posts/20210228/xor_animation.gif">
-</video></center>
+  <img src="../assets/img/posts/20210228/xor_animation.gif">
+</video></div>
 
 所以，我的小型 ML 库现在已经完成。

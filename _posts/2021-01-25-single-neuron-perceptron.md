@@ -23,7 +23,7 @@ mathjax: yes
 
 从本质上讲，感知器只不过是一些值和通过它们传递信息的规则的集合，但其简单性却蕴含着它的强大力量。
 
-<center><img src='./assets/img/posts/20210125/Perceptron.png'></center>
+<center><img src='../assets/img/posts/20210125/Perceptron.png'></center>
 
 想象一下，你有一个“神经元”，为了“激活”它，你需要传递多个输入信号，每个信号通过突触连接到神经元。一旦信号在感知器中聚合，它就会被传递到一个或多个定义的输出。感知器就是一个神经元及其突触的集合，用于接收信号并修改信号以进行传递。
 
@@ -31,21 +31,9 @@ mathjax: yes
 
 例如，感知器可以获得如图所示的 3 个不同的输入，假设它接收的输入信号为：$x_1 = 1, \; x_2 = 2\; and \; x_3 = 3$, 如果它的权重分别为 $w_1 = 0.5,\; w_2 = 1\; and \; w_3 = -1$ 那么感知器在接收到信号时会做的是将每个输入值乘以其对应的权重，然后将它们相加。
 
-<p style="text-align:center">\(<br>
-\begin{align}
-\begin{split}
-\left(x_1 * w_1\right) + \left(x_2 * w_2\right) + \left(x_3 * w_3\right)
-\end{split}
-\end{align}
-\)</p>
+$\left(x_{1} * w_{1}\right)+\left(x_{2} * w_{2}\right)+\left(x_{3} * w_{3}\right)$
 
-<p style="text-align:center">\(<br>
-\begin{align}<br>
-\begin{split}<br>
-\left(0.5 * 1\right) + \left(1 * 2\right) + \left(-1 * 3\right) = 0.5 + 2 - 3 = -0.5
-\end{split}<br>
-\end{align}<br>
-\)</p>
+$(1 * 0.5) + (2 * 1) + (3 * -1) = 0.5 + 2 - 3 = -0.5$
 
 通常当获得这个值时，我们需要应用“激活”函数来平滑输出，但假设我们的激活函数是线性的，这意味着我们保持该值不变，那么就是这样，这就是感知器的输出，-0.5。
 
@@ -67,13 +55,13 @@ mathjax: yes
 
     输入 1 是点的 X 坐标，
     输入 2 是点的 y 坐标，
-    输入 3 是偏差，始终为 1
+    输入 3 是偏差bias，始终为 1
     
     对于不穿过原点 (0,0)的线，需要输入 3 或偏差
 
 感知器从将权重全部设置为零开始，并通过每次迭代使用 1,000 个随机点进行学习。
 
-感知器的输出通过以下激活函数计算：如果 $x * weight_x + y weight_y + weight_bias$ 为正则为 1 否则为 0
+感知器的输出通过以下激活函数计算：如果 $ x * weight_x + y * weight_y + weight_{bias}  $ 为正则为 1 否则为 0
 
 每个点的误差计算为感知器的预期结果减去实际结果，因此只有 3 个可能的误差值：
 
@@ -97,7 +85,7 @@ mathjax: yes
 
 这对于确保一旦权重接近最佳值，每次迭代中的调整都会更加微妙非常重要。
 
-<center><img src='./assets/img/posts/20210125/Learning_1000_points_per_iteration.jpg'></center>
+<center><img src='../assets/img/posts/20210125/Learning_1000_points_per_iteration.jpg'></center>
 
 最后，感知器总是会收敛到一个解决方案，并以极高的精度找到我们正在寻找的线。
 
