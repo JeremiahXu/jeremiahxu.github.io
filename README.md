@@ -1,110 +1,91 @@
 demo site now [mirrored](https://weathered-bread-8229.on.fleek.co/) in [IPFS](https://github.com/ipfs/ipfs#quick-summary)!
 
+[https://github.com/the-mvm/the-mvm.github.io](https://github.com/the-mvm/the-mvm.github.io)
+
 # Jekyll theme: Adam Blog 2.0
 
 by [Armando Maynez](https://github.com/amaynez) based on [V1.0](https://github.com/artemsheludko/adam-blog) by [Artem Sheludko](https://github.com/artemsheludko). 
 
-Adam Blog 2.0 is a Jekyll theme that was built to be 100% compatible with [GitHub Pages](https://pages.github.com/). If you are unfamiliar with GitHub Pages, you can check out [their documentation](https://help.github.com/categories/github-pages-basics/) for more information. [Jonathan McGlone's guide](http://jmcglone.com/guides/github-pages/) on creating and hosting a personal site on GitHub is also a good resource.
+Adam Blog 2.0 是一款 Jekyll 主题，旨在 100% 兼容 [GitHub Pages](https://pages.github.com/). 如果您不熟悉 GitHub Pages，可以查看 [their documentation](https://help.github.com/categories/github-pages-basics/) 了解更多信息. [Jonathan McGlone's guide](http://jmcglone.com/guides/github-pages/) 在 GitHub 上创建和托管个人网站的指南也是不错的资源。
 
 ### What is Jekyll?
 
-Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Basically, Jekyll takes your page content along with template files and produces a complete website. For more information, visit the [official Jekyll site](https://jekyllrb.com/docs/home/) for their documentation. Codecademy also offers a great course on [how to deploy a Jekyll site](https://www.codecademy.com/learn/deploy-a-website) for complete beginners.
+Jekyll 是一款简单易用的、支持博客的静态网站生成器，适用于个人、项目或组织网站。Jekyll 会将你的页面内容与模板文件整合，生成一个完整的网站。 更多信息，请访问[official Jekyll site](https://jekyllrb.com/docs/home/) . 还提供了一门很棒的课程， [how to deploy a Jekyll site](https://www.codecademy.com/learn/deploy-a-website) 为初学者.
 
 ### Never Used Jekyll Before?
 
-The beauty of hosting your website on GitHub is that you don't have to actually have Jekyll installed on your computer. Everything can be done through the GitHub code editor, with minimal knowledge of how to use Jekyll or the command line. All you have to do is add your posts to the `_posts` directory and edit the `_config.yml` file to change the site settings. With some rudimentary knowledge of HTML and CSS, you can even modify the site to your liking. This can all be done through the GitHub code editor, which acts like a content management system (CMS).
+在 GitHub 上托管网站的好处在于，您无需在计算机上安装 Jekyll。所有操作都可以通过 GitHub 代码编辑器完成，即使您对 Jekyll 或命令行的使用了解甚少。您只需将帖子添加到  `_posts` 目录，然后编辑 `_config.yml` 文件即可更改网站设置。只需具备一些基本的 HTML 和 CSS 知识，您甚至可以根据自己的喜好修改网站。所有这些都可以通过 GitHub 代码编辑器完成，它的作用类似于内容管理系统 (CMS)。
 
 ## Features of v2.0:
 
-- SEO meta tags
-- Dark mode ([configurable in _config.yml file](https://github.com/the-mvm/the-mvm.github.io/blob/a8d4f781bfbc4107b4842433701d28f5bbf1c520/_config.yml#L10))
+- SEO 元标签
+- Dark mode ([可在 _config.yml 文件中配置](https://github.com/the-mvm/the-mvm.github.io/blob/a8d4f781bfbc4107b4842433701d28f5bbf1c520/_config.yml#L10))
 - automatic [sitemap.xml](http://the-mvm.github.io/sitemap.xml)
-- automatic [archive page](http://the-mvm.github.io/archive/) with infinite scrolling capability
-- [new page](https://the-mvm.github.io/tag/?tag=Coding) of posts filtered by a single tag (without needing autopages from paginator V2), also with infinite scrolling
-- click to tweet functionality (just add a `<tweet> </tweet>` tag in your markdown.
-- custom and responsive [404 page](https://the-mvm.github.io/404.html)
-- responsive and automatic Table of Contents (optional per post)
-- read time per post automatically calculated
-- responsive post tags and social share icons (sticky or inline)
-- included linkedin, reddit and bandcamp icons
-- *copy link to clipboard* sharing option (and icon)
-- view on github link button (optional per post)
-- MathJax support (optional per post)
-- tag cloud in the home page
-- 'back to top' button
-- comments 'courtain' to mask the disqus interface until the user clicks on it ([configurable in _config.yml](https://github.com/the-mvm/the-mvm.github.io/blob/d4a67258912e411b639bf5acd470441c4c219544/_config.yml#L13))
-- [CSS variables](https://github.com/the-mvm/the-mvm.github.io/blob/d4a67258912e411b639bf5acd470441c4c219544/assets/css/main.css#L8) to make it easy to customize all colors and fonts
-- added several themes for code syntax highlight [configurable from the _config.yml file](https://github.com/the-mvm/the-mvm.github.io/blob/e146070e9348c2e8f46cb90e3f0c6eb7b59c041a/_config.yml#L44).
-- responsive footer menu and footer logo ([if setup in the config file](https://github.com/the-mvm/the-mvm.github.io/blob/d4a67258912e411b639bf5acd470441c4c219544/_config.yml#L7))
-- search shows results based on full post content, not just the description
-- smoother menu animations 
+- automatic [archive page](http://the-mvm.github.io/archive/) 具有无限滚动功能
+- [new page](https://the-mvm.github.io/tag/?tag=Coding) of posts 通过单个标签过滤 (无需分页器 V2 的自动分页), ，也可以无限滚动
+- 点击推文功能 (just add a `<tweet> </tweet>` tag in your markdown.
+- 自定义和响应式 [404 page](https://the-mvm.github.io/404.html)
+- 响应式自动**目录toc** (每篇文章可选)
+- 自动计算每篇文章的**阅读时间**
+- 响应式帖子标签和社交分享图标 (粘贴或内联)
+- 包括  linkedin, reddit and bandcamp 图标
+- *将链接复制到剪贴板* 共享选项 (和icon)
+- 在 GitHub 上查看链接按钮 (每篇文章可选)
+- MathJax support (每篇文章可选)
+- 主页中的 tag 云
+- '返回顶部' 按钮
+- 评论 'courtain' 以掩盖 disqus 界面 ，直到用户点击它 ([配置 in _config.yml](https://github.com/the-mvm/the-mvm.github.io/blob/d4a67258912e411b639bf5acd470441c4c219544/_config.yml#L13))
+- [CSS 变量](https://github.com/the-mvm/the-mvm.github.io/blob/d4a67258912e411b639bf5acd470441c4c219544/assets/css/main.css#L8) 可轻松自定义所有颜色和字体
+- 添加了几个代码语法高亮主题 [配置 from the _config.yml file](https://github.com/the-mvm/the-mvm.github.io/blob/e146070e9348c2e8f46cb90e3f0c6eb7b59c041a/_config.yml#L44).
+- 响应式页脚菜单和页脚 logo ([在配置文件中设置](https://github.com/the-mvm/the-mvm.github.io/blob/d4a67258912e411b639bf5acd470441c4c219544/_config.yml#L7))
+- 搜索结果基于完整的帖子内容，而不仅仅是描述
+- 更流畅的菜单动画
 
-## Features preserved from v1.0
+## 保留的功能 from v1.0
 
 - [Google Fonts](https://fonts.google.com/)
 - [Font Awesome icons](http://fontawesome.io/)
 - [Disqus](https://disqus.com/)
 - [MailChimp](https://mailchimp.com/)
-- [Analytics](https://analytics.google.com/analytics/web/)
-- [Search](https://github.com/christian-fei/Simple-Jekyll-Search)
+- [Analytics分析](https://analytics.google.com/analytics/web/)
+- [Search搜索](https://github.com/christian-fei/Simple-Jekyll-Search)
 
-## Demo
+## Demo 演示
 
-[Check the theme in action](https://the-mvm.github.io/)
-
-The main page looks like this:
-
-<img width="640px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/homepage-responsive.jpg?raw=true">
-
-Dark mode selector in main menu:
-
-<img width="560px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/light-toggle.png?raw=true">
-
-The post page looks like:
-
-<img width="540px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/post.jpg?raw=true">
-<img width="540px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/post_bottom.jpg?raw=true">
-
-Custom responsive 404:
+自定义响应式 404：
 
 <img width="640px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/404-responsive.jpg?raw=true">
 
-Dark mode looks like this:
 
-<img width="640px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/homepage-dark.png?raw=true">
+# 安装
 
-<img width="640px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/post-dark.png?raw=true">
-<img width="640px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/post_bottom-dark.png?raw=true">
+## 本地安装
 
-# Installation
+要完整安装 Adam Blog 2.0, [请下载 Adam Blog 2.0 的副本](https://github.com/the-mvm/the-mvm.github.io/archive/refs/heads/main.zip) 并将其解压到其自己的目录中。然后，打开您常用的命令行工具，输入 `bundle install`，再输入  `jekyll serve` 。您的网站应该会在[http://localhost:4000](http://localhost:4000)本地启动并运行。
 
-## Local Installation
+如果您是 Jekyll 的新手，我建议您查看 <https://jekyllrb.com/> 上的文档，或者查看 [Smashing Magazine](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/)的教程。
 
-For a full local installation of Adam Blog 2.0, [download your own copy of Adam Blog 2.0](https://github.com/the-mvm/the-mvm.github.io/archive/refs/heads/main.zip) and unzip it into it's own directory. From there, open up your favorite command line tool, enter `bundle install`, and then enter `jekyll serve`. Your site should be up and running locally at [http://localhost:4000](http://localhost:4000).
+如果您将网站托管在 GitHub Pages 上，那么提交对 `_config.yml` 文件（或任何其他文件）的更改将强制使用 Jekyll 重建您的网站。任何更改应该很快就会可见。如果您将网站托管在本地，则必须再次运行 `jekyll serve` 才能使更改生效。
 
-If you're completely new to Jekyll, I recommend checking out the documentation at <https://jekyllrb.com/> or there's a tutorial by [Smashing Magazine](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/).
+前往 `_posts` 目录，查看网站上当前的所有帖子，并查看帖子文件的示例。您可以直接复制模板帖子，然后开始添加您自己的内容。
 
-If you are hosting your site on GitHub Pages, then committing a change to the `_config.yml` file (or any other file) will force a rebuild of your site with Jekyll. Any changes made should be viewable soon after. If you are hosting your site locally, then you must run `jekyll serve` again for the changes to take place.
-
-Head over to the `_posts` directory to view all the posts that are currently on the website, and to see examples of what post files generally look like. You can simply just duplicate the template post and start adding your own content.
-
-## GitHub Pages Installation
+## GitHub Pages 安装
 
 ### **STEP 1.**
 
-[Fork this repository](https://github.com/the-mvm/the-mvm.github.io/fork/) into your own account.
+[Fork this repository](https://github.com/the-mvm/the-mvm.github.io/fork/) 到您自己的帐户中。
 
-#### Using Github Pages
+#### 使用 Github Pages
 
-You can host your Jekyll site for free with Github Pages. [Click here](https://pages.github.com/) for more information.
+你可以使用 Github Pages 免费托管你的 Jekyll 网站。 [Click here](https://pages.github.com/) 了解更多信息。
 
- When forking, if you use as destination a repository named ``USERNAME.github.io`` then your url will be ``https://USERNAME.github.io/``, else ``https://USERNAME.github.io/REPONAME/``) and your site will be published to the gh-pages branch. Note: if you are hosting several sites under the same GitHub username, then you will have to use [Project Pages instead of User Pages](https://help.github.com/articles/user-organization-and-project-pages/) - just change the repository name to something other than 'http://USERNAME.github.io'.
+ When forking, 如果您使用的地址仓库，命名为 ``USERNAME.github.io`` 那么您的 URL 将为 ``https://USERNAME.github.io/``, 否则为 ``https://USERNAME.github.io/REPONAME/``) 并且您的网站将发布到 gh-pages 分支. 注意：如果您使用同一个 GitHub 用户名托管多个网站，则必须使用  [Project Pages 而不是 User Pages](https://help.github.com/articles/user-organization-and-project-pages/) - 只需将仓库名称更改为 'http://USERNAME.github.io'以外的其他名称即可。
 
-##### A configuration tweak if you're using a gh-pages branch
+##### 如果你使用 gh-pages 分支，则需要进行配置调整
 
-In addition to your github-username.github.io repo that maps to the root url, you can serve up sites by using a gh-pages branch for other repos so they're available at github-username.github.io/repo-name.
+除了映射到根 URL 的 github-username.github.io repo 之外，您还可以使用其他 repo 的 gh-pages 分支来提供站点，以便它们可在 github-username.github.io/repo-name 上使用。
 
-This will require you to modify the `_config.yml` like so:
+这将要求您修改 `_config.yml` 如下：
 
 ```yml
 # Site settings
@@ -116,11 +97,11 @@ baseurl: "/repo-name"
 url: "https://github-username.github.io"
 ```
 
-This will ensure that the the correct relative path is constructed for your assets and posts.
+这将确保为您的资产和帖子构建正确的相对路径。
 
 ### **STEP 2.**
 
-Modify ``_config.yml`` file, located in the root directory, with your data.
+使用您的数据修改位于根目录中的 ``_config.yml`` 文件。
 
 ```YAML
 # Site settings
@@ -165,7 +146,7 @@ words_per_minute: 200 # default words per minute to be considered when calculati
 
 ### **STEP 3.**
 
-To configure the newsletter, please create an account in https://mailchimp.com, set up a web signup form and paste the link from the embed signup form in the `config.yml` file:
+要配置 newsletter, please 创建一个帐户 in https://mailchimp.com, 设置一个网络注册表单，并将嵌入注册表单中的链接粘贴到 `config.yml` 文件中：
 
 ```YAML
 # Newsletter
@@ -174,7 +155,7 @@ mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6
 
 ### **STEP 4.**
 
-To configure Disqus, set up a [Disqus site](https://disqus.com/admin/create/) with the same name as your site. Then, in `_config.yml`, edit the `disqus_identifier` value to enable.
+要配置 Disqus， 请先设置一个与您的网站同名的 [Disqus 网站](https://disqus.com/admin/create/) . Then, in `_config.yml`, 编辑 `disqus_identifier`  值以启用此功能。
 
 ```YAML
 # Disqus
@@ -182,11 +163,11 @@ discus_identifier:  # Add your discus identifier
 comments_curtain: yes # leave empty to show the disqus embed directly
 ```
 
-More information on [how to set up Disqus](http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/).
+更多信息 on [如何设置 Disqus](http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/).
 
 ### **STEP 5.**
 
-Customize the site colors. Modify `/assets/css/main.css` as follows:
+自定义站点颜色。修改  `/assets/css/main.css` 如下：
 
 ```CSS
 html {
@@ -222,7 +203,7 @@ html[data-theme="dark"]  {
 
 ### **STEP 6.**
 
-Customize the site fonts. Modify `/assets/css/main.css` as follows:
+自定义站点字体。修改  `/assets/css/main.css` 如下：
 
 ```CSS
 ...
@@ -237,14 +218,13 @@ Customize the site fonts. Modify `/assets/css/main.css` as follows:
 ...
 ```
 
-If you change the fonts, you need to also modify `/_includes/head.html` as follows:
-Uncomment and change the following line with your new fonts and font weights:
+如果您更改字体，您还需要按如下方式修改 `/_includes/head.html` :取消注释并使用新的字体和字体粗细更改以下行：
 
 ```HTML
 <link href="https://fonts.googleapis.com/css?family=Lora:400,600|Source+Sans+Pro:200,400,700" rel="stylesheet">
 ```
 
-Delete everything within `<style></style>` just before the line above:
+删除 `<style></style>` 中上述行之前的所有内容：
 
 ```HTML
 <style>
@@ -257,11 +237,11 @@ Delete everything within `<style></style>` just before the line above:
 
 ### **STEP 7.**
 
-You will find example posts in your `/_posts/` directory. Go ahead and edit any post and re-build the site to see your changes, for github pages, this happens automatically with every commit. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+You will find example posts in your `/_posts/` directory. Go ahead and edit any post and re-build the site to see your changes, for github pages, this happens automatically with every commit. 重建网站的方法有很多种，但最常用的方法是运行 `jekyll serve`，它会启动 Web 服务器并在文件更新时自动重新生成您的网站。
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention of `YYYY-MM-DD-name-of-post.md` and includes the necessary front matter. Take a look at any sample post to get an idea about how it works. If you already have a website built with Jekyll, simply copy over your posts to migrate to Adam Blog 2.0.
+要添加新帖子，只需在 `_posts`  目录中添加一个遵循  `YYYY-MM-DD-name-of-post.md`  名称.md 格式的文件，并包含必要的头条内容。您可以查看任意示例帖子，了解其工作原理。如果您已经使用 Jekyll 搭建了网站，只需复制您的帖子即可迁移到 Adam Blog 2.0。
 
-The front matter options for each post are:
+每篇文章的封面选项如下：
 
 ```YAML
 ---
@@ -279,21 +259,21 @@ toc: yes # leave empty or erase for no table of contents
 ---
 ```
 
-Edit your blogpost using markdown. [Here is a good guide about how to use it.](https://www.markdownguide.org/)
+使用 Markdown 编辑你的博文。 [这里有一个很棒的使用指南。](https://www.markdownguide.org/)
 
 ### **STEP 7.**
 
-Delete images inside of ``/assets/img/posts/`` and upload your own images for your posts.
+删除 ``/assets/img/posts/`` 内的图片并上传您自己的帖子图片。
 
 ### **STEP 8.**
 
-Make sure Github Pages are turned on in the repository settings, and pointing to the main or master branch (where you cloned this repo).
+确保在存储库设置中打开 Github Pages，并指向主分支或主分支（您克隆此存储库的位置）。
 
-## Additional documentation
+## 其他文档
 
-### Directory Structure
+### 目录结构
 
-If you are familiar with Jekyll, then the Adam Blog 2.0 directory structure shouldn't be too difficult to navigate. The following some highlights of the differences you might notice between the default directory structure. More information on what these folders and files do can be found in the [Jekyll documentation site](https://jekyllrb.com/docs/structure/).
+如果您熟悉 Jekyll，那么 Adam Blog 2.0 的目录结构应该不会太难浏览。以下是您可能注意到的与默认目录结构之间的一些差异。有关这些文件夹和文件用途的更多信息，请参阅 [Jekyll 文档网站 ](https://jekyllrb.com/docs/structure/).
 
 ```bash
 Adam Blog 2.0/
@@ -323,35 +303,39 @@ Adam Blog 2.0/
 └── sitemap.xml                # automatically generated sitemap for search engines
 ```
 
-### Starting From Scratch
+### 从零开始
 
-To completely start from scratch, simply delete all the files in the `_posts`, `assets/img/posts` folders, and add your own content. Everything in the `_config.yml` file can be edited to suit your needs. Also change the `favicon.ico` file to your own favicon.
+要完全从头开始，只需删除 `_posts`, `assets/img/posts` 文件夹中的所有文件，然后添加您自己的内容。
+`_config.yml` 文件中的所有内容都可以根据您的需求进行编辑。
+此外，请将 `favicon.ico` 文件更改为您自己的网站图标。
 
-### Click to tweet
+### 点击 tweet
 
-If you have a tweetable quote in your blog post and wish to feature it as a click to tweet block, you just have to use the `<tweet></tweet>` tags, everything between them will be converted in a click to tweet box.
+如果您的博客文章中有可推文的引文，并希望将其作为点击推文块，您只需使用 `<tweet></tweet>` 标签，它们之间的所有内容都将转换为点击推文框。
 
 <img width="640px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/ctt-markdown.png?raw=true">
 
 <img width="640px" src="https://github.com/the-mvm/the-mvm.github.io/blob/main/assets/img/template_screenshots/ctt-render.png?raw=true">
 
-### Google Analytics
+### 谷歌分析
 
-It is possible to track your site statistics through [Google Analytics](https://www.google.com/analytics/). Similar to Disqus, you will have to create an account for Google Analytics, and enter the correct Google ID for your site under `google-ID` in the `_config.yml` file. More information on [how to set up Google Analytics](https://michaelsoolee.com/google-analytics-jekyll/).
+您可以通过 [Google Analytics](https://www.google.com/analytics/)跟踪您的网站统计信息。与 Disqus 类似，您需要创建一个 Google Analytics 帐户，并在  `_config.yml` 文件的  `google-ID`  下输入您网站正确的 Google ID。
+更多信息 on [如何设置  Google Analytics](https://michaelsoolee.com/google-analytics-jekyll/).
 
 ### Atom Feed
 
-Atom is supported by default through [jekyll-feed](https://github.com/jekyll/jekyll-feed). With jekyll-feed, you can set configuration variables such as 'title', 'description', and 'author', in the `_config.yml` file.
+Atom 默认 提供 通过 [jekyll-feed](https://github.com/jekyll/jekyll-feed). 使用 jekyll-feed，你可以设置配置变量 such as 'title', 'description', and 'author', in the `_config.yml` file.
 
-Your atom feed file will be live at `https://your.site/feed.xml` [example](https://the-mvm.github.io/feed.xml).
+您的 atom feed 文件将在 `https://your.site/feed.xml` [example](https://the-mvm.github.io/feed.xml)中显示。
 
 ### Social Media Icons
 
-All social media icons are courtesy of [Font Awesome](http://fontawesome.io/). You can change which icons appear, as well as the account that they link to, in the `_config.yml` file.
+所有社交媒体图标均由 [Font Awesome](http://fontawesome.io/)提供。您可以在 `_config.yml`文件中更改显示的图标以及它们链接到的帐户。
 
 ### MathJax
 
-Adam Blog 2.0 comes out of the box with [MathJax](https://www.mathjax.org/), which allows you to display mathematical equations in your posts through the use of [LaTeX](http://www.andy-roberts.net/writing/latex/mathematics_1). Just add `Mathjax: yes` in the frontmatter of your post.
+Adam Blog 2.0 内置  [MathJax](https://www.mathjax.org/), 
+可让您使用 [LaTeX](http://www.andy-roberts.net/writing/latex/mathematics_1) 在文章中显示数学公式。只需在文章前言中添加`Mathjax: yes`  即可。
 
 ```markdown
 <p style="text-align:center">
@@ -361,41 +345,32 @@ Adam Blog 2.0 comes out of the box with [MathJax](https://www.mathjax.org/), whi
 
 ![rendered mathjax](/assets/img/template_screenshots/MathjaxRendered.jpg)
 
-### Syntax Highlighting
+### 语法高亮
 
-Adam Blog 2.0 provides syntax highlighting through [fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/). Syntax highlighting allows you to display source code in different colors and fonts depending on what programming language is being displayed. You can find the full list of supported programming languages [here](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers). Another option is to embed your code through [Gist](https://en.support.wordpress.com/gist/).
+Adam Blog 2.0 通过 [fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)提供语法高亮功能。语法高亮功能允许您根据所显示的编程语言，以不同的颜色和字体显示源代码。您可以 [here](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) 找到支持的编程语言的完整列表。另一种选择是通过 [Gist](https://en.support.wordpress.com/gist/)嵌入代码。
 
-You can choose the color theme for the syntax highlight in the `_config.yml` file:
+You can 选择语法高亮的颜色主题 in the `_config.yml` file:
 
 ```YAML
 highlight_theme: syntax-base16.monokai.dark # select a theme for the code highlighter
 ```
 
-See the [highlighter directory](https://github.com/the-mvm/the-mvm.github.io/tree/main/assets/css/highlighter) for reference on the options.
+See the [highlighter 目录](https://github.com/the-mvm/the-mvm.github.io/tree/main/assets/css/highlighter) 以获取有关选项的参考。
 
 ### Markdown
 
-Jekyll offers support for GitHub Flavored Markdown, which allows you to format your posts using the [Markdown syntax](https://guides.github.com/features/mastering-markdown/).
+Jekyll 提供对 GitHub Flavored Markdown 的支持，允许您使用 [Markdown syntax](https://guides.github.com/features/mastering-markdown/)来格式化您的帖子。
 
-## Everything Else
+## 其他一切
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+查看  [Jekyll docs][jekyll-docs] 了解更多关于如何充分利用 Jekyll 的信息。所有错误/功能请求请提交至 [Jekyll's GitHub repo][jekyll-gh]. 如有疑问，欢迎在 [Jekyll Talk][jekyll-talk]上提问。
 
 [jekyll-docs]: http://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
 
-## Contributing
-
-If you would like to make a feature request, or report a bug or typo in the documentation, then please [submit a GitHub issue](https://github.com/the-mvm/the-mvm.github.io/issues/new). If you would like to make a contribution, then feel free to [submit a pull request](https://help.github.com/articles/about-pull-requests/) - as a bonus, I will credit all contributors below! If this is your first pull request, it may be helpful to read up on the [GitHub Flow](https://guides.github.com/introduction/flow/) first.
-
-Adam Blog 2.0 has been designed as a base for users to customize and fit to their own unique needs. Please keep this in mind when requesting features and/or submitting pull requests. Some examples of changes that I would love to see are things that would make the site easier to use, or better ways of doing things. Please avoid changes that do not benefit the majority of users.
-
-## Questions?
-
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to  [file a GitHub issue](https://github.com/the-mvm/the-mvm.github.io/issues/new).
-
 ---
+
 ## 导出 Docker 镜像
 
 如果你使用 Docker 部署本博客，可以通过以下命令将镜像导出为 tar 文件：
