@@ -1,0 +1,7 @@
+{% if site.wechat or site.wechat_qr %}
+<li class="wechat">
+  <a class="wechat wechat-qr-trigger" href="weixin://contacts/profile/{{ site.wechat | default: '' }}" title="添加微信好友" rel="noopener">
+    <i class="fa fa-weixin" aria-hidden="true"></i>
+  </a>
+</li>
+{% endif %}

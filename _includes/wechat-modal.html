@@ -1,0 +1,56 @@
+{% if site.wechat or site.wechat_qr %}
+<div id="wechat-qr-modal" class="qr-modal" role="dialog" aria-hidden="true" aria-labelledby="wechat-qr-title" tabindex="-1">
+  <div class="qr-backdrop" data-action="close"></div>
+  <div class="qr-content" role="document">
+    <button class="qr-close" type="button" data-action="close" aria-label="close">&times;</button>
+    <h4 id="wechat-qr-title">添加微信好友</h4>
+    <div class="qr-image">
+      <img alt="WeChat QR" src="{% if site.wechat_qr %}{{ site.wechat_qr }}{% else %}{{ relativebase }}/assets/img/wechat-qr.png{% endif %}">
+    </div>
+    {% if site.wechat %}
+      <p class="qr-tip">微信号：<strong>{{ site.wechat }}</strong></p>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.qr-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center}
+.qr-modal[aria-hidden="false"]{display:flex}
+.qr-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5)}
+.qr-content{position:relative;background:#fff;padding:20px;border-radius:8px;max-width:320px;width:90%;text-align:center}
+.qr-image img{max-width:100%;height:auto;display:block;margin:0 auto}
+.qr-close{position:absolute;right:8px;top:6px;border:none;background:transparent;font-size:22px;cursor:pointer}
+</style>
+
+<script>
+(function(){
+  var triggers = document.querySelectorAll('.wechat-qr-trigger');
+  var modal = document.getElementById('wechat-qr-modal');
+  if(!triggers.length || !modal) return;
+
+  function setHidden(val){
+    modal.setAttribute('aria-hidden', val ? 'true' : 'false');
+    if(!val){ var c = modal.querySelector('.qr-close'); if(c) c.focus(); }
+  }
+  function isMobile(){ return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
+
+  triggers.forEach(function(trigger){
+    trigger.addEventListener('click', function(e){
+      var href = this.getAttribute('href') || '';
+      if(isMobile() && href.indexOf('weixin://') === 0){
+        e.preventDefault();
+        var fallback = setTimeout(function(){ setHidden(false); }, 800);
+        window.location.href = href;
+        document.addEventListener('visibilitychange', function onVis(){ if(document.hidden){ clearTimeout(fallback); document.removeEventListener('visibilitychange', onVis); } });
+        return;
+      }
+      e.preventDefault();
+      setHidden(false);
+    });
+  });
+
+  modal.querySelectorAll('[data-action="close"]').forEach(function(n){ n.addEventListener('click', function(){ setHidden(true); }); });
+  modal.addEventListener('keydown', function(e){ if(e.key === 'Escape') setHidden(true); });
+})();
+</script>
+{% endif %}

@@ -36,8 +36,10 @@ website: https://jeremiah.top # Add your website
 linkedin: # Add your Linkedin handle
 github: jeremiahxu # Add your Github handle
 twitter: jeremiahhxu # Add your Twitter handle
-bandcamp: armandomaynez # Add your Bandcamp username
+bandcamp:  # Add your Bandcamp username
 stackoverflow: 19106771 # Add your stackoverflow account
+wechat: "jeremiahxu"
+wechat_qr: "/assets/img/wechat-qr.jpg"
 
 # Newsletter
 mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
