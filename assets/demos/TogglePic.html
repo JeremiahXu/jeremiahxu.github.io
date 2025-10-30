@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>图片切换</title>
+  <style>
+    :root{
+      --max-width: 960px;
+      --btn-size: 56px;
+      --btn-bg: rgba(0,0,0,0.35);
+      --btn-hover-bg: rgba(0,0,0,0.5);
+    }
+
+    html,body{
+      height:100%;
+      width:100%;
+      margin: 0px auto;
+      padding: 0px;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      background: #fafafa;
+    }
+
+    .wrap{
+      height:100%;
+      width:100%;
+      margin:0;
+      max-width: var(--max-width);
+      margin: 0px auto;
+      padding: 0px;
+    }
+
+    .carousel{
+      position: relative;
+      height:100%;
+      width:100%;
+      /* 保持 16:9，可按需改 */
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #111;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .slides{
+      position: absolute;
+      inset:0;
+      display:block;
+    }
+
+    .slides img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      opacity:0;
+      transition: opacity 360ms ease;
+      user-select:none;
+      -webkit-user-drag: none;
+    }
+
+    .slides img.active{
+      opacity:1;
+      z-index:1;
+    }
+
+    /* 左右控制（大触控区） */
+    .control {
+      position: absolute;
+      top:0;
+      bottom:0;
+      width: 20%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:5;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .control:active{ transform: scale(0.995); }
+
+    .control-inner{
+      width: var(--btn-size);
+      height: var(--btn-size);
+      min-width: var(--btn-size);
+      min-height: var(--btn-size);
+      border-radius: 50%;
+      background: var(--btn-bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition: background .15s, transform .08s;
+      color: #fff;
+    }
+
+    .control-inner:hover{ background: var(--btn-hover-bg); }
+
+    .control svg{ width:28px; height:28px; pointer-events:none; }
+
+    .control.left{ left:0; }
+    .control.right{ right:0; }
+
+    /* 禁用样式（边界处隐藏或半透明） */
+    .control.hidden { display:none; }
+    .control.disabled .control-inner { opacity:0.45; pointer-events:none; }
+
+    /* 小屏适配 */
+    @media (max-width:640px){
+      :root{ --btn-size:48px; }
+      .control{ width:24%; }
+      .carousel{ border-radius:6px; }
+    }
+
+    /* 辅助：底部指示器 */
+    .dots{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:10px;
+      display:flex;
+      gap:8px;
+      z-index:6;
+    }
+    .dot{ width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.45); }
+    .dot.active{ background:#fff; transform:scale(1.15); }
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div id="app" style="height:100%;
+      width:100%;" >
+      <div class="carousel"
+           @touchstart="onTouchStart"
+           @touchmove="onTouchMove"
+           @touchend="onTouchEnd"
+           @mousedown.prevent
+           @keydown.left.prevent="prev"
+           @keydown.right.prevent="next"
+           tabindex="0" aria-roledescription="image carousel" role="region">
+        <div class="slides">
+          <img
+            v-for="(src,i) in imgUrlArr"
+            :key="i"
+            :src="src"
+            :alt="`slide ${i+1}`"
+            :class="{active: i===index}">
+        </div>
+
+        <!-- 左右大触控区 -->
+        <div
+          class="control left"
+          :class="{hidden: !showPrev, disabled: animating}"
+          @click="prev">
+          <div class="control-inner" aria-hidden="true">
+            <!-- 左箭头 SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div
+          class="control right"
+          :class="{hidden: !showNext, disabled: animating}"
+          @click="next">
+          <div class="control-inner" aria-hidden="true">
+            <!-- 右箭头 SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 6l6 6-6 6"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="dots" v-if="imgUrlArr.length>1" aria-hidden="true">
+          <span v-for="(s,i) in imgUrlArr" :key="i" :class="['dot', {active: i===index}]"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vue 2（开发版） -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="./vue.js"></script>
+  <script>
+    new Vue({
+      el:'#app',
+      data(){
+        return {
+          imgUrlArr: [
+            '/assets/img/posts/20220921/00.jpg',
+            '/assets/img/posts/20220921/01.jpg',
+            '/assets/img/posts/20220921/02.jpg',
+            '/assets/img/posts/20220921/03.jpg',
+            '/assets/img/posts/20220921/04.jpg',
+            '/assets/img/posts/20220921/05.jpg',
+            '/assets/img/posts/20220921/06.jpg'
+          ],
+          index: 0,
+          animating: false,
+          // touch
+          touchStartX: 0,
+          touchDeltaX: 0,
+          swipeThreshold: 40
+        }
+      },
+      computed:{
+        showPrev(){ return this.index > 0; },
+        showNext(){ return this.index < this.imgUrlArr.length - 1; }
+      },
+      methods:{
+        prev(){
+          if(this.animating) return;
+          if(this.index <= 0) return;
+          this.changeTo(this.index - 1);
+        },
+        next(){
+          if(this.animating) return;
+          if(this.index >= this.imgUrlArr.length - 1) return;
+          this.changeTo(this.index + 1);
+        },
+        changeTo(newIndex){
+          if(newIndex === this.index) return;
+          this.animating = true;
+          // 简短节流，保证过渡视觉完整
+          // CSS 已用 opacity 过渡，这里等待略多于 transition 时间
+          this.index = newIndex;
+          setTimeout(()=> this.animating = false, 420);
+        },
+        // touch handlers for mobile swipe
+        onTouchStart(evt){
+          const t = evt.touches ? evt.touches[0] : evt;
+          this.touchStartX = t.clientX;
+          this.touchDeltaX = 0;
+        },
+        onTouchMove(evt){
+          const t = evt.touches ? evt.touches[0] : evt;
+          this.touchDeltaX = t.clientX - this.touchStartX;
+        },
+        onTouchEnd(){
+          const dx = this.touchDeltaX || 0;
+          if(Math.abs(dx) < this.swipeThreshold) return;
+          if(dx > 0){ this.prev(); } else { this.next(); }
+          this.touchDeltaX = 0;
+        }
+      },
+      mounted(){
+        // 方便键盘操作：聚焦容器
+        this.$el.querySelector('.carousel').focus();
+      }
+    })
+  </script>
+</body>
+
+</html>
